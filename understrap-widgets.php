@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Understrap Widgets
- * Plugin URI: http://github.com/dvlopes/undestrap-widgets
+ * Plugin URI: http://github.com/dvlopes/understrap-widgets
  * Description: Adds common WordPress widgets to be used as building blocks for Understrap Theme Framework or any Bootstrap theme.
  * Text Domain: understrap_widgets
  * Domain Path: /languages
