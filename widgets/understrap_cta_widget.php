@@ -17,7 +17,7 @@ class UnderstrapCTA_Widget extends WP_Widget {
     echo $args['before_widget'];
 
     ?>
-      <div class="understrap-cta <?php esc_attr_e( $instance['css_class'] ); ?>">
+      <div class="cta <?php esc_attr_e( $instance['css_class'] ); ?>">
         <?php 
         if ( ! empty( $instance['title'] ) ) {
           echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
