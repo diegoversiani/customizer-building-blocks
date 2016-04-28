@@ -20,7 +20,7 @@ add_action( 'widgets_init', 'understrap_widgets_plugin_init');
 function understrap_widgets_plugin_init () {
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_about_widget.php' );
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_cta_widget.php' );
-  require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_feature_widget.php' );
+  require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_featured_widget.php' );
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_images_list_widget.php' );
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_section_begin_widget.php' );
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_section_end_widget.php' );
@@ -29,7 +29,7 @@ function understrap_widgets_plugin_init () {
   
   register_widget( 'UnderstrapAbout_Widget' );
   register_widget( 'UnderstrapCTA_Widget' );
-  register_widget( 'UnderstrapFeature_Widget' );
+  register_widget( 'UnderstrapFeatured_Widget' );
   register_widget( 'UnderstrapImagesList_Widget' );
   register_widget( 'UnderstrapSectionBegin_Widget' );
   register_widget( 'UnderstrapSectionEnd_Widget' );
