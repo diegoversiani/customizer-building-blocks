@@ -25,19 +25,19 @@ class UnderstrapFeatured_Widget extends WP_Widget {
     ?>
 
       <div class="<?php esc_attr_e( $css_class ); ?> featured">
-        <div class="featured-item text-center">
+        <div class="featured-item">
           
           <?php if ( ! empty( $instance['image_url'] )) : ?>
           <img class="img-responsive center-block" src="<?php echo esc_url( $instance['image_url'] ); ?>" alt="<?php esc_attr_e( $instance['title'] ); ?>">
           <?php endif; ?>
 
           <?php if ( ! empty( $instance['icon_class'] ) ) : ?>
-          <div class="icon">
+          <div class="featured-icon">
             <span class="fa-stack fa-4x">
               <?php if ( ! empty( $instance['icon_background_class'] ) ) : ?>
-              <i class="fa <?php esc_attr_e( $instance['icon_background_class'] ); ?> fa-stack-2x"></i>
+              <i class="fa <?php esc_attr_e( $instance['icon_background_class'] ); ?> fa-stack-2x icon-bg"></i>
               <?php endif; ?>
-              <i class="fa fa-stack-1x <?php esc_attr_e( $instance['icon_class'] ); ?>"></i>
+              <i class="fa fa-stack-1x <?php esc_attr_e( $instance['icon_class'] ); ?> icon"></i>
             </span>
           </div>
           <?php endif; ?>
@@ -106,7 +106,7 @@ class UnderstrapFeatured_Widget extends WP_Widget {
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'icon_background_class' ); ?>"><?php _e( 'Icon Class:', 'understrap_widgets' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'icon_background_class' ); ?>"><?php _e( 'Background Icon Class:', 'understrap_widgets' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'icon_background_class' ); ?>" name="<?php echo $this->get_field_name( 'icon_background_class' ); ?>" type="text" value="<?php esc_attr_e( $icon_background_class ); ?>">
     <small><?php _e( 'Any icon class from <a href="https://fortawesome.github.io">FontAwesome</a>, but usually <code>fa-circle</code>, <code>fa-circle-o</code>, <code>fa-square</code> or <code>fa-square-o</code>.', 'understrap_widgets' ); ?></small>
     </p>
