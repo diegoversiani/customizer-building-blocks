@@ -13,7 +13,7 @@ class UnderstrapFeatured_Widget extends WP_Widget {
   public function widget( $args, $instance ) {
 
     $css_class = ( ! empty( $instance['css_class'] ) ? $instance['css_class'] : 'col-sm-4' );
-    $button_css_class = ( $instance['button_css_class'] ? $instance['button_css_class'] : 'btn-default' );
+    $button_css_class = ( $instance['button_css_class'] ? $instance['button_css_class'] : 'btn-secondary' );
 
     if ( ! empty( $instance['title_tag'] ) ) {
       $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="featured-title">';
@@ -28,7 +28,7 @@ class UnderstrapFeatured_Widget extends WP_Widget {
         <div class="featured-item">
           
           <?php if ( ! empty( $instance['image_url'] )) : ?>
-          <img class="img-responsive center-block" src="<?php echo esc_url( $instance['image_url'] ); ?>" alt="<?php esc_attr_e( $instance['title'] ); ?>">
+          <img class="img-fluid center-block" src="<?php echo esc_url( $instance['image_url'] ); ?>" alt="<?php esc_attr_e( $instance['title'] ); ?>">
           <?php endif; ?>
 
           <?php if ( ! empty( $instance['icon_class'] ) ) : ?>
