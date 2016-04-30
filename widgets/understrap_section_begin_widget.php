@@ -3,7 +3,7 @@
 class UnderstrapSectionBegin_Widget extends WP_Widget {
 
   public function __construct() {
-    $widget_ops = array( 
+    $widget_ops = array(
       'classname' => 'understrap_section_begin_widget',
       'description' => __( 'A Section Begin widget for Understrap Theme. Should always be used before a Section End widget.', 'understrap_widgets' ),
     );
@@ -25,7 +25,7 @@ class UnderstrapSectionBegin_Widget extends WP_Widget {
     <div class="wrapper <?php esc_attr_e( $instance['css_class'] ); ?>">
         <div class="<?php esc_attr_e( $container_class ); ?>">
           <div class="row">
-            <div class="col-xs-12 section-content">
+            <div class="section-content">
               <?php 
               if ( ! empty( $instance['title'] ) ) {
                 echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
