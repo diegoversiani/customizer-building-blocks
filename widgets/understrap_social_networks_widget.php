@@ -38,19 +38,19 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
         <ul class="list-inline">
 
           <?php if ( ! empty( $instance['facebook_url'] ) ) : ?>
-          <li><a href="<?php echo esc_url( $instance['facebook_url'] ); ?>" target="_blank"><i class="fa fa-facebook-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
+          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['facebook_url'] ); ?>" target="_blank"><i class="fa fa-facebook-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
           <?php endif; ?>
 
           <?php if ( ! empty( $instance['instagram_url'] ) ) : ?>
-          <li><a href="<?php echo esc_url( $instance['instagram_url'] ); ?>" target="_blank"><i class="fa fa-instagram <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
+          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['instagram_url'] ); ?>" target="_blank"><i class="fa fa-instagram <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
           <?php endif; ?>
 
           <?php if ( ! empty( $instance['twitter_url'] ) ) : ?>
-          <li><a href="<?php echo esc_url( $instance['twitter_url'] ); ?>" target="_blank"><i class="fa fa-twitter <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
+          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['twitter_url'] ); ?>" target="_blank"><i class="fa fa-twitter <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
           <?php endif; ?>
 
           <?php if ( ! empty( $instance['youtube_url'] ) ) : ?>
-          <li><a href="<?php echo esc_url( $instance['youtube_url'] ); ?>" target="_blank"><i class="fa fa-youtube-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
+          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['youtube_url'] ); ?>" target="_blank"><i class="fa fa-youtube-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
           <?php endif; ?>
           
         </ul>
