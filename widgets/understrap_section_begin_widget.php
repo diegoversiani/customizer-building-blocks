@@ -15,7 +15,7 @@ class UnderstrapSectionBegin_Widget extends WP_Widget {
     $container_class = ( $instance['container_fluid'] ? 'container-fluid' : 'container' );
 
     if ( ! empty( $instance['title_tag'] ) ) {
-      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="featured-title">';
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . '>';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
@@ -25,12 +25,16 @@ class UnderstrapSectionBegin_Widget extends WP_Widget {
     <div class="wrapper <?php esc_attr_e( $instance['css_class'] ); ?>">
         <div class="<?php esc_attr_e( $container_class ); ?>">
           <div class="row">
-            <div class="section-content">
-              <?php 
-              if ( ! empty( $instance['title'] ) ) {
-                echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
-              }
 
+            <?php if ( ! empty( $instance['title'] ) ) : ?>
+              <div class="section-title">
+              <?php echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title']; ?>
+              </div>
+            <?php endif; ?>
+
+            <div class="section-content">
+
+    <?php
   }
 
   public function form( $instance ) {
