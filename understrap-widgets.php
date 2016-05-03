@@ -14,9 +14,15 @@
 // CONSTANTS
 if (!defined('UNDERSTRAP_WIDGETS_DIR')) define('UNDERSTRAP_WIDGETS_DIR', plugin_dir_path( __FILE__ ));
 
+// IS_UNDERSTRAP_WIDGETS_ACTIVATED
+if (! function_exists( 'is_understrap_widgets_ativated' )) {
+  function is_understrap_widgets_ativated () {
+    return true;
+  }
+}
+
 // == SETUP
 add_action( 'widgets_init', 'understrap_widgets_plugin_init');
-
 function understrap_widgets_plugin_init () {
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_about_widget.php' );
   require_once( UNDERSTRAP_WIDGETS_DIR . 'widgets/understrap_cta_widget.php' );
