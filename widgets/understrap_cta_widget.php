@@ -12,7 +12,7 @@ class UnderstrapCTA_Widget extends WP_Widget {
 
   public function widget( $args, $instance ) {
 
-    $button_css_class = ( $instance['button_css_class'] ? $instance['button_css_class'] : 'btn-secondary' );
+    $button_css_class = ( ! empty( $instance['button_css_class'] ) ) ? $instance['button_css_class'] : 'btn-secondary';
 
     echo $args['before_widget'];
 
