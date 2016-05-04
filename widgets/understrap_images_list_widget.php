@@ -12,7 +12,7 @@ class UnderstrapImagesList_Widget extends WP_Widget {
       'classname' => 'understrap_images_list_widget',
       'description' => __( 'A list of images to show anywhere.', 'understrap_widgets' ),
     );
-    parent::__construct( 'understrap_images_list_widget', __( 'Understrap Images List', 'understrap_widgets' ), $widget_ops );
+    parent::__construct( 'understrap_images_list_widget', __( 'Understrap Images List (DEPRECATED)', 'understrap_widgets' ), $widget_ops );
   }
 
   /**
