@@ -24,8 +24,14 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
    * @param array $instance Saved values from database.
    */
   public function widget( $args, $instance ) {
-    echo $args['before_widget'];
     
+    if ( ! empty( $instance['title_tag'] ) ) {
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="about-title">';
+      $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
+    }
+
+    echo $args['before_widget'];
+
     ?>
 
       <div class="<?php echo ( empty( $instance['css_class'] ) ? 'col-xs-12' : esc_attr( $instance['css_class'] ) ); ?> social-networks">
@@ -70,6 +76,7 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
    */
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+    $title_tag = ! empty( $instance['title_tag'] ) ? $instance['title_tag'] : '';
     $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     $icon_size = ! empty( $instance['icon_size'] ) ? $instance['icon_size'] : '';
 
@@ -78,13 +85,26 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     $twitter_url = ! empty( $instance['twitter_url'] ) ? $instance['twitter_url'] : '';
     $youtube_url = ! empty( $instance['youtube_url'] ) ? $instance['youtube_url'] : '';
 
-
     ?>
     
     <p>
     <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'understrap_widgets' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php esc_attr_e( $title ); ?>">
     </p>
+
+    <p>
+    <label><?php _e( 'Title Tags:', 'understrap_widgets' ); ?></label>
+    <br>
+    <select class="widefat" id="<?php echo $this->get_field_id( 'title_tag' ); ?>" name="<?php echo $this->get_field_name( 'title_tag' ); ?>">
+      <option value="" <?php esc_attr_e( $title_tag == '' ? 'selected' : '' ); ?>><?php _e( '-- None --', 'understrap_widgets' ); ?></option>
+      <option value="h1" <?php esc_attr_e( $title_tag == 'h1' ? 'selected' : '' ); ?>><?php _e( 'h1', 'understrap_widgets' ); ?></option>
+      <option value="h2" <?php esc_attr_e( $title_tag == 'h2' ? 'selected' : '' ); ?>><?php _e( 'h2', 'understrap_widgets' ); ?></option>
+      <option value="h3" <?php esc_attr_e( $title_tag == 'h3' ? 'selected' : '' ); ?>><?php _e( 'h3', 'understrap_widgets' ); ?></option>
+      <option value="h4" <?php esc_attr_e( $title_tag == 'h4' ? 'selected' : '' ); ?>><?php _e( 'h4', 'understrap_widgets' ); ?></option>
+      <option value="h5" <?php esc_attr_e( $title_tag == 'h5' ? 'selected' : '' ); ?>><?php _e( 'h5', 'understrap_widgets' ); ?></option>
+      <option value="h6" <?php esc_attr_e( $title_tag == 'h6' ? 'selected' : '' ); ?>><?php _e( 'h6', 'understrap_widgets' ); ?></option>
+      <option value="span" <?php esc_attr_e( $title_tag == 'span' ? 'selected' : '' ); ?>><?php _e( 'span', 'understrap_widgets' ); ?></option>
+    </select>
 
     <p>
     <label for="<?php echo $this->get_field_id( 'css_class' ); ?>"><?php _e( 'Custom CSS Classes:', 'understrap_widgets' ); ?></label> 
@@ -141,6 +161,8 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+    $title_tag_allowed = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span');
+    $instance['title_tag'] = ( in_array($new_instance['title_tag'], $title_tag_allowed) ) ? $new_instance['title_tag'] : '';
     $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? sanitize_text_field( $new_instance['css_class'] ) : '';
 
     $icon_size_allowed = array('fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x');
