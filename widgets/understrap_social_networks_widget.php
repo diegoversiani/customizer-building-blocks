@@ -1,12 +1,7 @@
 <?php 
-/**
-* Adds UnderstrapSocialNetworks_Widget widget.
-*/
+
 class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
-  /**
-   * Sets up the widgets name etc
-   */
   public function __construct() {
     $widget_ops = array( 
       'classname' => 'understrap_social_networks_widget',
@@ -15,14 +10,6 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     parent::__construct( 'understrap_social_networks_widget', __( 'Understrap Social Networks List', 'understrap_widgets'), $widget_ops );
   }
 
-  /**
-   * Front-end display of widget.
-   *
-   * @see UnderstrapSocialNetworks_Widget::widget()
-   *
-   * @param array $args     Widget arguments.
-   * @param array $instance Saved values from database.
-   */
   public function widget( $args, $instance ) {
     
     if ( ! empty( $instance['title_tag'] ) ) {
@@ -67,13 +54,6 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     echo $args['after_widget'];
   }
 
-  /**
-   * Back-end widget form.
-   *
-   * @see WP_Widget::form()
-   *
-   * @param array $instance Previously saved values from database.
-   */
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $title_tag = ! empty( $instance['title_tag'] ) ? $instance['title_tag'] : '';
@@ -146,16 +126,6 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     <?php 
   }
 
-  /**
-   * Sanitize widget form values as they are saved.
-   *
-   * @see WP_Widget::update()
-   *
-   * @param array $new_instance Values just sent to be saved.
-   * @param array $old_instance Previously saved values from database.
-   *
-   * @return array Updated safe values to be saved.
-   */
   public function update( $new_instance, $old_instance ) {
     // TODO: Sanitize css class names accordingly to w3c specifications
 
@@ -168,7 +138,6 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     $icon_size_allowed = array('fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x');
     $instance['icon_size'] = ( in_array($new_instance['icon_size'], $icon_size_allowed) ) ? $new_instance['icon_size'] : '';
     
-     // url escaped for database insertion
     $instance['facebook_url'] = ( ! empty( $new_instance['facebook_url'] ) ) ? esc_url_raw( $new_instance['facebook_url'] ) : '';
     $instance['instagram_url'] = ( ! empty( $new_instance['instagram_url'] ) ) ? esc_url_raw( $new_instance['instagram_url'] ) : '';
     $instance['twitter_url'] = ( ! empty( $new_instance['twitter_url'] ) ) ? esc_url_raw( $new_instance['twitter_url'] ) : '';

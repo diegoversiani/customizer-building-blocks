@@ -1,12 +1,7 @@
 <?php 
-/**
-* Adds UnderstrapText_Widget widget.
-*/
+
 class UnderstrapText_Widget extends WP_Widget {
 
-  /**
-   * Sets up the widgets name
-   */
   public function __construct() {
     $widget_ops = array( 
       'classname' => 'understrap_text_widget',
@@ -15,14 +10,6 @@ class UnderstrapText_Widget extends WP_Widget {
     parent::__construct( 'understrap_text_widget', __( 'Understrap Text', 'understrap_widgets' ), $widget_ops );
   }
 
-  /**
-   * Front-end display of widget.
-   *
-   * @see UnderstrapText_Widget::widget()
-   *
-   * @param array $args     Widget arguments.
-   * @param array $instance Saved values from database.
-   */
   public function widget( $args, $instance ) {
 
     if ( ! empty( $instance['title_tag'] ) ) {
@@ -54,13 +41,6 @@ class UnderstrapText_Widget extends WP_Widget {
     echo $args['after_widget'];
   }
 
-  /**
-   * Back-end widget form.
-   *
-   * @see WP_Widget::form()
-   *
-   * @param array $instance Previously saved values from database.
-   */
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $title_tag = ! empty( $instance['title_tag'] ) ? $instance['title_tag'] : '';
@@ -100,16 +80,6 @@ class UnderstrapText_Widget extends WP_Widget {
     <?php 
   }
 
-  /**
-   * Sanitize widget form values as they are saved.
-   *
-   * @see WP_Widget::update()
-   *
-   * @param array $new_instance Values just sent to be saved.
-   * @param array $old_instance Previously saved values from database.
-   *
-   * @return array Updated safe values to be saved.
-   */
   public function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
