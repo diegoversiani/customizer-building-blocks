@@ -103,7 +103,6 @@ class UnderstrapAbout_Widget extends WP_Widget {
       <option value="h6" <?php esc_attr_e( $title_tag == 'h6' ? 'selected' : '' ); ?>><?php _e( 'h6', 'understrap_widgets' ); ?></option>
       <option value="span" <?php esc_attr_e( $title_tag == 'span' ? 'selected' : '' ); ?>><?php _e( 'span', 'understrap_widgets' ); ?></option>
     </select>
-    <small><?php _e( 'Apply only for the section title, not the widgets inside it.', 'understrap_widgets' ); ?></small>
 
     <p>
     <label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text:', 'understrap_widgets' ); ?></label> 
