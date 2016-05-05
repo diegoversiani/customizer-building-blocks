@@ -17,8 +17,6 @@ class UnderstrapText_Widget extends WP_Widget {
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
-    $container_class = ( $instance['container_fluid'] ? 'container-fluid' : 'container' );
-
     $widget_text = ! empty( $instance['text'] ) ? $instance['text'] : '';
     $text_escaped = apply_filters( 'widget_text', $widget_text, $instance, $this );
     
