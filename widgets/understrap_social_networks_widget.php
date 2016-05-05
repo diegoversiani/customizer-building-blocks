@@ -26,7 +26,7 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
   public function widget( $args, $instance ) {
     
     if ( ! empty( $instance['title_tag'] ) ) {
-      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="about-title">';
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="social-networks-title">';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
