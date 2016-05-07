@@ -24,7 +24,7 @@ class UnderstrapFeatured_Widget extends WP_Widget {
 
     ?>
 
-      <div class="<?php esc_attr_e( $css_class ); ?> featured">
+      <div class="featured <?php esc_attr_e( $css_class ); ?>">
         <div class="featured-item">
           
           <?php if ( ! empty( $instance['image_url'] )) : ?>

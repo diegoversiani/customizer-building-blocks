@@ -23,7 +23,7 @@ class UnderstrapText_Widget extends WP_Widget {
     echo $args['before_widget'];
 
     ?>
-      <div class="<?php echo ( empty ( $instance['css_class'] ) ) ? 'col-xs-12' : esc_attr( $instance['css_class'] ); ?>">
+      <div class="text <?php esc_attr_e( $instance['css_class'] ); ?>">
         <?php
 
         if ( ! empty( $instance['title'] ) ) {

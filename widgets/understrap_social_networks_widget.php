@@ -21,7 +21,7 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
     ?>
 
-      <div class="<?php echo ( empty( $instance['css_class'] ) ? 'col-xs-12' : esc_attr( $instance['css_class'] ) ); ?> social-networks">
+      <div class="social-networks <?php esc_attr_e( $instance['css_class'] ); ?>">
         <?php 
         if ( ! empty( $instance['title'] ) ) {
           echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
