@@ -21,23 +21,10 @@ class UnderstrapCTA_Widget extends WP_Widget {
 
     echo $args['before_widget'];
 
-    ?>
-      <div class="cta <?php esc_attr_e( $instance['css_class'] ); ?>">
-        <?php 
-        if ( ! empty( $instance['title'] ) ) {
-          echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
-        }
-        ?>
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_cta_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_cta_template.php';
+    include ( $template );
 
-        <p><?php echo wp_kses_post( $instance['text'] ); ?></p>
-
-        <?php if ( ! empty( $instance['button_text'] ) ) : ?>
-          <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="btn <?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
-        <?php endif; ?>
-
-      </div>
-
-    <?php
     echo $args['after_widget'];
   }
 
