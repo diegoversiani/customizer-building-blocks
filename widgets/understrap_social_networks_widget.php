@@ -2,6 +2,62 @@
 
 class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
+  const SOCIAL_NETWORKS = array(
+    'behance' => 'Behance',
+    'bitcoin' => 'Bitcoin',
+    'delicious' => 'Delicious',
+    'deviantart' => 'DeviantArt',
+    'digg' => 'Digg',
+    'dribbble' => 'Dribbble',
+    'facebook' => 'Facebook',
+    'flickr' => 'Flickr',
+    'foursquare' => 'Foursquare',
+    'github' => 'GitHub',
+    'google_plus' => 'Google+',
+    'instagram' => 'Instagram',
+    'lastfm' => 'LastFM',
+    'linkedin' => 'LinkedIn',
+    'medium' => 'Medium',
+    'pinterest' => 'Pinterest',
+    'skype' => 'Skype',
+    'soundcloud' => 'Soundcloud',
+    'spotify' => 'Spotify',
+    'tumblr' => 'Tumblr',
+    'twitter' => 'Twitter',
+    'vine' => 'Vine',
+    'wechat' => 'WeChat',
+    'wordpress' => 'WordPress',
+    'youtube' => 'YouTube',
+    );
+
+  private static $social_networks_icons = array(
+    'behance' => 'fa-behance',
+    'bitcoin' => 'fa-bitcoin',
+    'delicious' => 'fa-delicious',
+    'deviantart' => 'fa-deviantart',
+    'digg' => 'fa-digg',
+    'dribbble' => 'fa-dribbble',
+    'facebook' => 'fa-facebook',
+    'flickr' => 'fa-flickr',
+    'foursquare' => 'fa-foursquare',
+    'github' => 'fa-github',
+    'google_plus' => 'fa-google-plus',
+    'instagram' => 'fa-instagram',
+    'lastfm' => 'fa-lastfm',
+    'linkedin' => 'fa-linkedin',
+    'medium' => 'fa-medium',
+    'pinterest' => 'fa-pinterest',
+    'skype' => 'fa-skype',
+    'soundcloud' => 'fa-soundcloud',
+    'spotify' => 'fa-spotify',
+    'tumblr' => 'fa-tumblr',
+    'twitter' => 'fa-twitter',
+    'vine' => 'fa-vine',
+    'wechat' => 'fa-wechat',
+    'wordpress' => 'fa-wordpress',
+    'youtube' => 'fa-youtube',
+    );
+
   public function __construct() {
     $widget_ops = array( 
       'classname' => 'understrap_social_networks_widget',
@@ -11,6 +67,9 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
   }
 
   public function widget( $args, $instance ) {
+
+    $social_networks = self::SOCIAL_NETWORKS;
+    $social_networks_icons = self::$social_networks_icons;
     
     if ( ! empty( $instance['title_tag'] ) ) {
       $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="social-networks-title">';
@@ -19,38 +78,10 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
     echo $args['before_widget'];
 
-    ?>
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_template.php';
+    include ( $template );
 
-      <div class="social-networks <?php esc_attr_e( $instance['css_class'] ); ?>">
-        <?php 
-        if ( ! empty( $instance['title'] ) ) {
-          echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
-        }
-        ?>
-
-        <ul class="list-inline">
-
-          <?php if ( ! empty( $instance['facebook_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['facebook_url'] ); ?>" target="_blank"><i class="fa fa-facebook-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-
-          <?php if ( ! empty( $instance['instagram_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['instagram_url'] ); ?>" target="_blank"><i class="fa fa-instagram <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-
-          <?php if ( ! empty( $instance['twitter_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['twitter_url'] ); ?>" target="_blank"><i class="fa fa-twitter <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-
-          <?php if ( ! empty( $instance['youtube_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['youtube_url'] ); ?>" target="_blank"><i class="fa fa-youtube-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-          
-        </ul>
-
-      </div>
-
-    <?php
     echo $args['after_widget'];
   }
 
@@ -59,11 +90,6 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     $title_tag = ! empty( $instance['title_tag'] ) ? $instance['title_tag'] : '';
     $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     $icon_size = ! empty( $instance['icon_size'] ) ? $instance['icon_size'] : '';
-
-    $facebook_url = ! empty( $instance['facebook_url'] ) ? $instance['facebook_url'] : '';
-    $instagram_url = ! empty( $instance['instagram_url'] ) ? $instance['instagram_url'] : '';
-    $twitter_url = ! empty( $instance['twitter_url'] ) ? $instance['twitter_url'] : '';
-    $youtube_url = ! empty( $instance['youtube_url'] ) ? $instance['youtube_url'] : '';
 
     ?>
     
@@ -103,27 +129,22 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
       <option value="fa-5x" <?php esc_attr_e( $icon_size == 'fa-5x' ? 'selected' : '' ); ?>><?php _e( '5x', 'understrap_widgets' ); ?></option>
     </select>
 
-    <p>
-    <label for="<?php echo $this->get_field_id( 'facebook_url' ); ?>"><?php _e( 'Facebook URL:', 'understrap_widgets' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'facebook_url' ); ?>" name="<?php echo $this->get_field_name( 'facebook_url' ); ?>" type="text" value="<?php esc_attr_e( $facebook_url ); ?>">
-    </p>
+    <?php
 
-    <p>
-    <label for="<?php echo $this->get_field_id( 'instagram_url' ); ?>"><?php _e( 'Instagram URL:', 'understrap_widgets' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'instagram_url' ); ?>" name="<?php echo $this->get_field_name( 'instagram_url' ); ?>" type="text" value="<?php esc_attr_e( $instagram_url ); ?>">
-    </p>
+    foreach (self::SOCIAL_NETWORKS as $key => $social_network_name) {
+      
+      $social_network_url = $key . '_url';
+      
+      ?>
 
-    <p>
-    <label for="<?php echo $this->get_field_id( 'twitter_url' ); ?>"><?php _e( 'Twitter URL:', 'understrap_widgets' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'twitter_url' ); ?>" name="<?php echo $this->get_field_name( 'twitter_url' ); ?>" type="text" value="<?php esc_attr_e( $twitter_url ); ?>">
-    </p>
+      <p>
+      <label for="<?php echo $this->get_field_id( $social_network_url ); ?>"><?php esc_html_e( $social_network_name . _x( ' URL:', 'Suffix for Social Networks name on widget backend form: Facebook URL:' , 'understrap_widgets' ) ); ?></label> 
+      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_url ); ?>" name="<?php echo $this->get_field_name( $social_network_url ); ?>" type="text" value="<?php esc_attr_e( $instance[ $social_network_url ] ); ?>">
+      </p>
 
-    <p>
-    <label for="<?php echo $this->get_field_id( 'youtube_url' ); ?>"><?php _e( 'YouTube URL:', 'understrap_widgets' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'youtube_url' ); ?>" name="<?php echo $this->get_field_name( 'youtube_url' ); ?>" type="text" value="<?php esc_attr_e( $youtube_url ); ?>">
-    </p>
+      <?php
+    }
 
-    <?php 
   }
 
   public function update( $new_instance, $old_instance ) {
@@ -138,10 +159,13 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     $icon_size_allowed = array('fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x');
     $instance['icon_size'] = ( in_array($new_instance['icon_size'], $icon_size_allowed) ) ? $new_instance['icon_size'] : '';
     
-    $instance['facebook_url'] = ( ! empty( $new_instance['facebook_url'] ) ) ? esc_url_raw( $new_instance['facebook_url'] ) : '';
-    $instance['instagram_url'] = ( ! empty( $new_instance['instagram_url'] ) ) ? esc_url_raw( $new_instance['instagram_url'] ) : '';
-    $instance['twitter_url'] = ( ! empty( $new_instance['twitter_url'] ) ) ? esc_url_raw( $new_instance['twitter_url'] ) : '';
-    $instance['youtube_url'] = ( ! empty( $new_instance['youtube_url'] ) ) ? esc_url_raw( $new_instance['youtube_url'] ) : '';
+    foreach (self::SOCIAL_NETWORKS as $key => $social_network_name) {
+      
+      $social_network_url = $key . '_url';
+
+      $instance[ $social_network_url ] = ( ! empty( $new_instance[ $social_network_url ] ) ) ? esc_url_raw( $new_instance[ $social_network_url ] ) : '';
+
+    }
 
     return $instance;
   }

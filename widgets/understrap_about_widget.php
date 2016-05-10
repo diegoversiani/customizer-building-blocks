@@ -23,34 +23,10 @@ class UnderstrapAbout_Widget extends WP_Widget {
 
     echo $args['before_widget'];
 
-    ?>
-    <div class="about <?php esc_attr_e( $instance['css_class'] ); ?>">
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_about_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_about_template.php';
+    include ( $template );
 
-      <?php 
-      if ( ! empty( $instance['title'] ) ) {
-        echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
-      }
-      ?>
-      
-      <div class="about-text">
-        <?php echo $text_escaped; ?>
-      </div>
-
-      <?php if ( ! empty( $instance['cta_text'] ) || ! empty( $instance['button_text'] ) ) : ?>
-      <div class="about-cta">
-        <?php if ( ! empty( $instance['cta_text'] ) ) : ?>
-        <p><?php esc_html_e( $instance['cta_text'] ); ?></p>
-        <?php endif; ?>
-
-        <?php if ( ! empty( $instance['button_text'] ) ) : ?>
-        <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="btn <?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
-        <?php endif; ?>
-      </div>
-      <?php endif; ?>
-
-    </div>
-
-    <?php
     echo $args['after_widget'];
   }
 

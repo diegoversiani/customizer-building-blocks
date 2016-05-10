@@ -12,29 +12,19 @@ class UnderstrapSectionBegin_Widget extends WP_Widget {
 
   public function widget( $args, $instance ) {
 
-    $container_class = ( $instance['container_fluid'] ? 'container-fluid' : 'container' );
-
     if ( ! empty( $instance['title_tag'] ) ) {
       $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . '>';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
+    $container_class = ( $instance['container_fluid'] ? 'container-fluid' : 'container' );
+
     echo $args['before_widget'];
 
-    ?> 
-    <div class="wrapper <?php esc_attr_e( $instance['css_class'] ); ?>">
-        <div class="<?php esc_attr_e( $container_class ); ?>">
-          <div class="row">
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_section_begin_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_section_begin_template.php';
+    include ( $template );
 
-            <?php if ( ! empty( $instance['title'] ) ) : ?>
-              <div class="section-title">
-              <?php echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title']; ?>
-              </div>
-            <?php endif; ?>
-
-            <div class="section-content">
-
-    <?php
   }
 
   public function form( $instance ) {
