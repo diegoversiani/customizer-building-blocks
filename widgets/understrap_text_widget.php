@@ -22,20 +22,10 @@ class UnderstrapText_Widget extends WP_Widget {
     
     echo $args['before_widget'];
 
-    ?>
-      <div class="text <?php esc_attr_e( $instance['css_class'] ); ?>">
-        <?php
-
-        if ( ! empty( $instance['title'] ) ) {
-          echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
-        }
-
-        echo $text_escaped;
-
-        ?>
-      </div>
-
-    <?php
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_text_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_text_template.php';
+    include ( $template );
+    
     echo $args['after_widget'];
   }
 
