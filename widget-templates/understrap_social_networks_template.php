@@ -12,27 +12,24 @@
     echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
   }
   ?>
-
   <ul class="list-inline">
 
-    <?php if ( ! empty( $instance['facebook_url'] ) ) : ?>
-    <li class="list-inline-item"><a href="<?php echo esc_url( $instance['facebook_url'] ); ?>" target="_blank"><i class="fa fa-facebook-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-    <?php endif; ?>
+  <?php
 
-    <?php if ( ! empty( $instance['instagram_url'] ) ) : ?>
-    <li class="list-inline-item"><a href="<?php echo esc_url( $instance['instagram_url'] ); ?>" target="_blank"><i class="fa fa-instagram <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-    <?php endif; ?>
+  foreach ($social_networks as $key => $social_network_name) {
+    
+    $social_network_url = $key . '_url';
 
-    <?php if ( ! empty( $instance['twitter_url'] ) ) : ?>
-    <li class="list-inline-item"><a href="<?php echo esc_url( $instance['twitter_url'] ); ?>" target="_blank"><i class="fa fa-twitter <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-    <?php endif; ?>
+    if ( isset( $instance[ $social_network_url ] ) ) {
+      $social_network_classes = $instance['icon_size'] . ' ' . $social_networks_icons[ $key ];
+      
+      $item_template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_item_template.php' );
+      if ( $item_template == '' ) $item_template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_item_template.php';
+      include ( $item_template );
 
-    <?php if ( ! empty( $instance['youtube_url'] ) ) : ?>
-    <li class="list-inline-item"><a href="<?php echo esc_url( $instance['youtube_url'] ); ?>" target="_blank"><i class="fa fa-youtube-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-    <?php endif; ?>
+    }
+  }
+  ?>
     
   </ul>
-
 </div>
-
-<?php
