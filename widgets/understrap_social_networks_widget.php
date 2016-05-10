@@ -19,38 +19,10 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
     echo $args['before_widget'];
 
-    ?>
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_template.php';
+    include ( $template );
 
-      <div class="social-networks <?php esc_attr_e( $instance['css_class'] ); ?>">
-        <?php 
-        if ( ! empty( $instance['title'] ) ) {
-          echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
-        }
-        ?>
-
-        <ul class="list-inline">
-
-          <?php if ( ! empty( $instance['facebook_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['facebook_url'] ); ?>" target="_blank"><i class="fa fa-facebook-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-
-          <?php if ( ! empty( $instance['instagram_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['instagram_url'] ); ?>" target="_blank"><i class="fa fa-instagram <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-
-          <?php if ( ! empty( $instance['twitter_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['twitter_url'] ); ?>" target="_blank"><i class="fa fa-twitter <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-
-          <?php if ( ! empty( $instance['youtube_url'] ) ) : ?>
-          <li class="list-inline-item"><a href="<?php echo esc_url( $instance['youtube_url'] ); ?>" target="_blank"><i class="fa fa-youtube-square <?php esc_attr_e( $instance['icon_size'] ) ?>"></i></a></li>
-          <?php endif; ?>
-          
-        </ul>
-
-      </div>
-
-    <?php
     echo $args['after_widget'];
   }
 
