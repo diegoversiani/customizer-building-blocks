@@ -105,8 +105,6 @@ class UnderstrapFeatured_Widget extends WP_Widget {
   }
 
   public function update( $new_instance, $old_instance ) {
-    // TODO: Sanitize css class names accordingly to w3c specifications
-
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 
@@ -114,15 +112,15 @@ class UnderstrapFeatured_Widget extends WP_Widget {
     $instance['title_tag'] = ( in_array($new_instance['title_tag'], $title_tag_allowed) ) ? $new_instance['title_tag'] : '';
     
     $instance['image_url'] = ( ! empty( $new_instance['image_url'] ) ) ? esc_url_raw( $new_instance['image_url'] ) : '';
-    $instance['icon_class'] = ( ! empty( $new_instance['icon_class'] ) ) ? sanitize_text_field( $new_instance['icon_class'] ) : '';
-    $instance['icon_background_class'] = ( ! empty( $new_instance['icon_background_class'] ) ) ? sanitize_text_field( $new_instance['icon_background_class'] ) : '';
+    $instance['icon_class'] = ( ! empty( $new_instance['icon_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['icon_class'] ) : '';
+    $instance['icon_background_class'] = ( ! empty( $new_instance['icon_background_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['icon_background_class'] ) : '';
 
     $instance['text'] = ( ! empty( $new_instance['text'] ) ) ? sanitize_text_field( $new_instance['text'] ) : '';
     $instance['button_text'] = ( ! empty( $new_instance['button_text'] ) ) ? sanitize_text_field( $new_instance['button_text'] ) : '';
     $instance['button_href'] = ( ! empty( $new_instance['button_href'] ) ) ? esc_url_raw( $new_instance['button_href'] ) : '';
 
-    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? sanitize_text_field( $new_instance['css_class'] ) : '';
-    $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? sanitize_text_field( $new_instance['button_css_class'] ) : '';
+    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
+    $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['button_css_class'] ) : '';
 
     return $instance;
   }

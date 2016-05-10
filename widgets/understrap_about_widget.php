@@ -102,9 +102,8 @@ class UnderstrapAbout_Widget extends WP_Widget {
     $instance['button_text'] = ( ! empty( $new_instance['button_text'] ) ) ? sanitize_text_field( $new_instance['button_text'] ) : '';
     $instance['button_href'] = ( ! empty( $new_instance['button_href'] ) ) ? esc_url_raw( $new_instance['button_href'] ) : '';
 
-    // TODO: Sanitize css class names accordingly to w3c specifications
-    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? sanitize_text_field( $new_instance['css_class'] ) : '';
-    $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? sanitize_text_field( $new_instance['button_css_class'] ) : '';
+    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
+    $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['button_css_class'] ) : '';
 
     return $instance;
   }

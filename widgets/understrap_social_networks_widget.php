@@ -148,14 +148,13 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
   }
 
   public function update( $new_instance, $old_instance ) {
-    // TODO: Sanitize css class names accordingly to w3c specifications
-
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
     $title_tag_allowed = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span');
     $instance['title_tag'] = ( in_array($new_instance['title_tag'], $title_tag_allowed) ) ? $new_instance['title_tag'] : '';
-    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? sanitize_text_field( $new_instance['css_class'] ) : '';
-
+    
+    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
+    
     $icon_size_allowed = array('fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x');
     $instance['icon_size'] = ( in_array($new_instance['icon_size'], $icon_size_allowed) ) ? $new_instance['icon_size'] : '';
     

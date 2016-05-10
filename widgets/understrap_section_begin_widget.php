@@ -76,8 +76,7 @@ class UnderstrapSectionBegin_Widget extends WP_Widget {
     $instance['title_tag'] = ( in_array($new_instance['title_tag'], $title_tag_allowed) ) ? $new_instance['title_tag'] : '';
     
     $instance['container_fluid'] = $new_instance['container_fluid'];
-    // TODO: Sanitize css classes for allowed characters
-    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? sanitize_text_field( $new_instance['css_class'] ) : '';
+    $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? understrap_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
 
     return $instance;
   }

@@ -15,14 +15,6 @@
 if (!defined('UNDERSTRAP_WIDGETS_DIR')) define('UNDERSTRAP_WIDGETS_DIR', plugin_dir_path( __FILE__ ));
 if (!defined('UNDERSTRAP_WIDGET_TEMPLATES_FOLDER')) define('UNDERSTRAP_WIDGET_TEMPLATES_FOLDER', 'widget-templates' );
 
-
-// IS_UNDERSTRAP_WIDGETS_ACTIVATED
-if (! function_exists( 'is_understrap_widgets_ativated' )) {
-  function is_understrap_widgets_ativated () {
-    return true;
-  }
-}
-
 // == SETUP
 add_action( 'widgets_init', 'understrap_widgets_plugin_init');
 function understrap_widgets_plugin_init () {
@@ -44,3 +36,24 @@ function understrap_widgets_plugin_init () {
 
 }
 // !== SETUP
+
+// == FUNCTIONS
+// is_understrap_widgets_ativated
+if (! function_exists( 'is_understrap_widgets_ativated' )) {
+  function is_understrap_widgets_ativated () {
+    return true;
+  }
+}
+
+if (! function_exists( 'understrap_widgets_sanitize_css_classes' )) {
+  function understrap_widgets_sanitize_css_classes ( $classes ) {
+    $individual_classes = explode(' ', $classes);
+
+    foreach ($individual_classes as $class) {
+      $sanitized_classes .= sanitize_html_class( $class ) . ' ';
+    }
+
+    return trim( $sanitized_classes );
+  }
+}
+// !== FUNCTIONS
