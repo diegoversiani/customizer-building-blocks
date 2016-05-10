@@ -31,5 +31,3 @@
   <?php endif; ?>
 
 </div>
-
-<?php

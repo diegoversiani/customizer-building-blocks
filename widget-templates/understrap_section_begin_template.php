@@ -17,5 +17,3 @@
         <?php endif; ?>
 
         <div class="section-content">
-
-<?php

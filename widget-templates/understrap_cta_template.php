@@ -20,5 +20,3 @@
     <?php endif; ?>
 
   </div>
-
-<?php
