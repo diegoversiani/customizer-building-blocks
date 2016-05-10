@@ -10,7 +10,11 @@ class UnderstrapSectionEnd_Widget extends WP_Widget {
   }
 
   public function widget( $args, $instance ) {
-    echo '</div></div></div></div>';
+
+    $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_section_end_template.php' );
+    if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_section_end_template.php';
+    include ( $template );
+
     echo $args['after_widget'];
   }
 

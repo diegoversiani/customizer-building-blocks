@@ -23,7 +23,6 @@ class UnderstrapSectionBegin_Widget extends WP_Widget {
 
     $template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_section_begin_template.php' );
     if ( $template == '' ) $template = UNDERSTRAP_WIDGETS_DIR . UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_section_begin_template.php';
-
     include ( $template );
 
   }
