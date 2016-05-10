@@ -13,6 +13,8 @@
 
 // CONSTANTS
 if (!defined('UNDERSTRAP_WIDGETS_DIR')) define('UNDERSTRAP_WIDGETS_DIR', plugin_dir_path( __FILE__ ));
+if (!defined('UNDERSTRAP_WIDGET_TEMPLATES_FOLDER')) define('UNDERSTRAP_WIDGET_TEMPLATES_FOLDER', 'widget-templates' );
+
 
 // IS_UNDERSTRAP_WIDGETS_ACTIVATED
 if (! function_exists( 'is_understrap_widgets_ativated' )) {
