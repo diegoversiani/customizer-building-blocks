@@ -4,6 +4,13 @@
  * Override by placing a file called `understrap_social_networks_template.php`
  * the folder `widget-templates` in your active theme
  */
+
+// == You can change the social network icon by changing its icon class.
+// create a copy of this template in the folder `widget-templates` in your
+// active theme and uncomment the lines bellow. Any FontAwesome Icon is accepted.
+// $social_networks_icons['facebook'] = 'fa-facebook-square';
+// $social_networks_icons['github'] = 'fa-github-alt';
+
 ?>
 
 <div class="social-networks <?php esc_attr_e( $instance['css_class'] ); ?>">
