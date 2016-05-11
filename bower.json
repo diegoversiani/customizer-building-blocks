@@ -1,0 +1,35 @@
+{
+  "name": "understrap-widgets",
+  "version": "0.1.2",
+  "homepage": "http://dvlopes.github.io",
+  "authors": [
+    "Diego Versiani <diegoversiani@gmail.com>"
+  ],
+  "description": "UnderStrap Widgets is a collection of Building Blocks widgets for UnderStrap Theme Framework or any Bootstrap theme.",
+  "moduleType": "globals",
+  "main": [
+    "sass/plugin.scss"
+  ],
+    "keywords": [
+      "bootstrap",
+      "underscores",
+      "understrap",
+      "wordpress",
+      "_s",
+      "sass"
+    ],
+  "license": "GPL-2.0",
+  "ignore": [
+    "**/.*",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "typed.js": "~1.1.1"
+  },
+  "_source": "https://github.com/dvlopes/understrap-widgets.git",
+  "_target": "~0.0.1",
+  "_originalSource": "understrap-widgets"
+}
+
+
