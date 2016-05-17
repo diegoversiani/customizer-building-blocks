@@ -27,7 +27,7 @@
     
     $social_network_url = $key . '_url';
 
-    if ( isset( $instance[ $social_network_url ] ) ) {
+    if ( !empty( $instance[ $social_network_url ] ) ) {
       $social_network_classes = $instance['icon_size'] . ' ' . $social_networks_icons[ $key ];
       
       $item_template = locate_template( UNDERSTRAP_WIDGET_TEMPLATES_FOLDER . '/understrap_social_networks_item_template.php' );
