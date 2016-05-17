@@ -2,7 +2,7 @@
 
 class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
-  private static $social_networks = array(
+  const SOCIAL_NETWORKS = array(
     'behance' => 'Behance',
     'bitcoin' => 'Bitcoin',
     'delicious' => 'Delicious',
@@ -68,7 +68,7 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
   public function widget( $args, $instance ) {
 
-    $social_networks = self::$social_networks;
+    $social_networks = self::SOCIAL_NETWORKS;
     $social_networks_icons = self::$social_networks_icons;
     
     if ( ! empty( $instance['title_tag'] ) ) {
@@ -131,7 +131,7 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
 
     <?php
 
-    foreach (self::$social_networks as $key => $social_network_name) {
+    foreach (self::SOCIAL_NETWORKS as $key => $social_network_name) {
       
       $social_network_url = $key . '_url';
       
@@ -158,7 +158,7 @@ class UnderstrapSocialNetworks_Widget extends WP_Widget {
     $icon_size_allowed = array('fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x');
     $instance['icon_size'] = ( in_array($new_instance['icon_size'], $icon_size_allowed) ) ? $new_instance['icon_size'] : '';
     
-    foreach (self::$social_networks as $key => $social_network_name) {
+    foreach (self::SOCIAL_NETWORKS as $key => $social_network_name) {
       
       $social_network_url = $key . '_url';
 
