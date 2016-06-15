@@ -1,21 +1,21 @@
 {
   "name": "understrap-widgets",
   "version": "0.1.2",
-  "description": "Basic building block for Understrap Theme Framework. https://github.com/dvlopes/understrap-widgets",
+  "description": "Basic building block for Understrap Theme Framework. https://github.com/diegoversiani/understrap-widgets",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvlopes/understrap-widgets.git"
+    "url": "https://github.com/diegoversiani/understrap-widgets.git"
   },
   "author": "Diego Versiani",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/dvlopes/understrap-widgets/issues"
+    "url": "https://github.com/diegoversiani/understrap-widgets/issues"
   },
-  "homepage": "https://github.com/dvlopes/understrap-widgets",
+  "homepage": "https://github.com/diegoversiani/understrap-widgets",
   "dependencies": {
     "bower": "^1.7.9",
     "gulp": "^3.9.0",

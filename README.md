@@ -4,7 +4,7 @@ Common Wordpress widgets to be used as building blocks for [Understrap Theme Fra
 
 # Instalation
 
-- [Download the Understrap Widgets](https://github.com/dvlopes/understrap-widgets/archive/master.zip) folder
+- [Download the Understrap Widgets](https://github.com/diegoversiani/understrap-widgets/archive/master.zip) folder
 - Extract the files from the downloaded zip
 - Rename the extracted folder from `understrap-widgets-master` to `understrap-widgets`
 - Upload it into your WordPress installation subfolder at `/wp-content/plugins/`

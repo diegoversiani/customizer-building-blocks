@@ -1,7 +1,7 @@
 {
   "name": "understrap-widgets",
   "version": "0.1.2",
-  "homepage": "http://dvlopes.github.io",
+  "homepage": "http://diegoversiani.me",
   "authors": [
     "Diego Versiani <diegoversiani@gmail.com>"
   ],
@@ -27,7 +27,7 @@
   "dependencies": {
     "typed.js": "~1.1.1"
   },
-  "_source": "https://github.com/dvlopes/understrap-widgets.git",
+  "_source": "https://github.com/diegoversiani/understrap-widgets.git",
   "_target": "~0.0.1",
   "_originalSource": "understrap-widgets"
 }
