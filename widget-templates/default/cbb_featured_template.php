@@ -1,9 +1,12 @@
 <?php 
 /*
  * Template for the output of the Featured Widget
- * Override by placing a file called `understrap_featured_template.php`
- * the folder `widget-templates` in your active theme
+ * Override by placing a file called `cbb_featured_template.php`
+ * in the folder `plugins/customizer-building-blocks/widget-templates` in your active theme
  */
+
+$css_class = 'four columns ' . $css_class;
+$button_css_class = 'button ' . $button_css_class;
 
 ?>
 <div class="featured <?php esc_attr_e( $css_class ); ?>">
@@ -35,7 +38,7 @@
     <?php endif; ?>
 
     <?php if ( ! empty( $instance['button_text'] )) : ?>
-      <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="btn <?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
+      <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="<?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
     <?php endif; ?>
 
   </div>

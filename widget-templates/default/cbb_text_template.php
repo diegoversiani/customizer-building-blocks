@@ -1,12 +1,14 @@
 <?php 
 /*
  * Template for the output of the Text Widget
- * Override by placing a file called `understrap_text_template.php`
- * the folder `widget-templates` in your active theme
+ * Override by placing a file called `cbb_text_template.php`
+ * in the folder `plugins/customizer-building-blocks/widget-templates` in your active theme
  */
 
+$css_class = 'cbb-text ' . $css_class;
+
 ?>
-<div class="text <?php esc_attr_e( $instance['css_class'] ); ?>">
+<div class="<?php esc_attr_e( $css_class ); ?>">
   <?php
 
   if ( ! empty( $instance['title'] ) ) {
