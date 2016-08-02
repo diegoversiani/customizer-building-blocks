@@ -30,7 +30,7 @@ $button_css_class = 'button ' . $button_css_class;
   <?php endif; ?>
 
   <?php if ( ! empty( $instance['button_text'] )) : ?>
-    <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="<?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
+    <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="cbb-featured__button <?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
   <?php endif; ?>
 
 </div>
