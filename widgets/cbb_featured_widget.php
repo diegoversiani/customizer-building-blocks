@@ -10,6 +10,10 @@ class CBB_Featured_Widget extends WP_Widget {
     parent::__construct( 'cbb_featured_widget', __( 'CBB Featured', 'customizer-building-blocks'), $widget_ops );
   }
 
+
+
+
+
   public function widget( $args, $instance ) {
 
     $css_class = ( ! empty( $instance['css_class'] ) ? $instance['css_class'] : '' );
@@ -28,6 +32,10 @@ class CBB_Featured_Widget extends WP_Widget {
 
     echo $args['after_widget'];
   }
+
+
+
+
 
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
@@ -103,6 +111,10 @@ class CBB_Featured_Widget extends WP_Widget {
     </p>
     <?php 
   }
+
+
+
+
 
   public function update( $new_instance, $old_instance ) {
     $instance = array();

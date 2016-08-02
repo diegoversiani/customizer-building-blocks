@@ -9,6 +9,10 @@ class CBB_SectionEnd_Widget extends WP_Widget {
     parent::__construct( 'cbb_section_end_widget', __( 'CBB Section End', 'customizer-building-blocks' ), $widget_ops );
   }
 
+
+
+
+
   public function widget( $args, $instance ) {
 
     $template = locate_template( CBB_THEME_TEMPLATES_FOLDER . '/cbb_section_end_template.php' );
@@ -17,6 +21,10 @@ class CBB_SectionEnd_Widget extends WP_Widget {
 
   }
 
+
+
+
+
   public function form( $instance ) {
     ?>
     <p>
@@ -24,6 +32,10 @@ class CBB_SectionEnd_Widget extends WP_Widget {
     </p>
     <?php 
   }
+
+
+
+
 
   public function update( $new_instance, $old_instance ) {
     return $instance;

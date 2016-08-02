@@ -10,6 +10,10 @@ class CBB_CTA_Widget extends WP_Widget {
     parent::__construct( 'cbb_cta_widget', __( 'CBB CTA/Call Out', 'customizer-building-blocks'), $widget_ops );
   }
 
+
+
+
+
   public function widget( $args, $instance ) {
 
     if ( ! empty( $instance['title_tag'] ) ) {
@@ -27,6 +31,10 @@ class CBB_CTA_Widget extends WP_Widget {
 
     echo $args['after_widget'];
   }
+
+
+
+
 
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
@@ -82,6 +90,10 @@ class CBB_CTA_Widget extends WP_Widget {
     </p>
     <?php 
   }
+
+
+
+
 
   public function update( $new_instance, $old_instance ) {
     $instance = array();

@@ -10,6 +10,10 @@ class CBB_Text_Widget extends WP_Widget {
     parent::__construct( 'cbb_text_widget', __( 'CBB Text', 'customizer-building-blocks' ), $widget_ops );
   }
 
+
+
+
+
   public function widget( $args, $instance ) {
 
     if ( ! empty( $instance['title_tag'] ) ) {
@@ -28,6 +32,10 @@ class CBB_Text_Widget extends WP_Widget {
     
     echo $args['after_widget'];
   }
+
+
+
+
 
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
@@ -67,6 +75,10 @@ class CBB_Text_Widget extends WP_Widget {
 
     <?php 
   }
+
+
+
+
 
   public function update( $new_instance, $old_instance ) {
     $instance = array();

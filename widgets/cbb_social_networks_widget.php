@@ -66,6 +66,10 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     'x5' => 'x5',
     );
 
+
+
+
+
   public function __construct() {
     $widget_ops = array( 
       'classname' => 'cbb_social_networks_widget',
@@ -73,6 +77,10 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     );
     parent::__construct( 'cbb_social_networks_widget', __( 'CBB Social Networks List', 'customizer-building-blocks'), $widget_ops );
   }
+
+
+
+
 
   public function widget( $args, $instance ) {
 
@@ -93,6 +101,10 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
 
     echo $args['after_widget'];
   }
+
+
+
+
 
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
@@ -158,6 +170,10 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     }
 
   }
+
+
+
+
 
   public function update( $new_instance, $old_instance ) {
     $instance = array();
