@@ -58,6 +58,14 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     'youtube' => 'youtube',
     );
 
+  private static $social_networks_icons_size = array(
+    'normal' => '',
+    'x2' => 'x2',
+    'x3' => 'x3',
+    'x4' => 'x4',
+    'x5' => 'x5',
+    );
+
   public function __construct() {
     $widget_ops = array( 
       'classname' => 'cbb_social_networks_widget',
@@ -70,6 +78,7 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
 
     $social_networks = self::$social_networks;
     $social_networks_icons = self::$social_networks_icons;
+    $social_networks_icons_size = self::$social_networks_icons_size;
     
     if ( ! empty( $instance['title_tag'] ) ) {
       $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="widget-title cbb-social-networks-title">';
@@ -121,12 +130,11 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     <label><?php _e( 'Icon Size:', 'customizer-building-blocks' ); ?></label>
     <br>
     <select class="widefat" id="<?php echo $this->get_field_id( 'icon_size' ); ?>" name="<?php echo $this->get_field_name( 'icon_size' ); ?>">
-      <option value="" <?php esc_attr_e( $icon_size == '' ? 'selected' : '' ); ?>><?php _e( 'Normal', 'customizer-building-blocks' ); ?></option>
-      <option value="fa-lg" <?php esc_attr_e( $icon_size == 'fa-lg' ? 'selected' : '' ); ?>><?php _e( 'Larger', 'customizer-building-blocks' ); ?></option>
-      <option value="fa-2x" <?php esc_attr_e( $icon_size == 'fa-2x' ? 'selected' : '' ); ?>><?php _e( '2x', 'customizer-building-blocks' ); ?></option>
-      <option value="fa-3x" <?php esc_attr_e( $icon_size == 'fa-3x' ? 'selected' : '' ); ?>><?php _e( '3x', 'customizer-building-blocks' ); ?></option>
-      <option value="fa-4x" <?php esc_attr_e( $icon_size == 'fa-4x' ? 'selected' : '' ); ?>><?php _e( '4x', 'customizer-building-blocks' ); ?></option>
-      <option value="fa-5x" <?php esc_attr_e( $icon_size == 'fa-5x' ? 'selected' : '' ); ?>><?php _e( '5x', 'customizer-building-blocks' ); ?></option>
+      <option value="normal" <?php esc_attr_e( $icon_size == 'normal' ? 'selected' : '' ); ?>><?php _e( 'Normal', 'customizer-building-blocks' ); ?></option>
+      <option value="x2" <?php esc_attr_e( $icon_size == 'x2' ? 'selected' : '' ); ?>><?php _e( '2x', 'customizer-building-blocks' ); ?></option>
+      <option value="x3" <?php esc_attr_e( $icon_size == 'x3' ? 'selected' : '' ); ?>><?php _e( '3x', 'customizer-building-blocks' ); ?></option>
+      <option value="x4" <?php esc_attr_e( $icon_size == 'x4' ? 'selected' : '' ); ?>><?php _e( '4x', 'customizer-building-blocks' ); ?></option>
+      <option value="x5" <?php esc_attr_e( $icon_size == 'x5' ? 'selected' : '' ); ?>><?php _e( '5x', 'customizer-building-blocks' ); ?></option>
     </select>
 
     <?php
@@ -159,9 +167,9 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     
     $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
     
-    $icon_size_allowed = array('fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x');
-    $instance['icon_size'] = ( in_array($new_instance['icon_size'], $icon_size_allowed) ) ? $new_instance['icon_size'] : '';
-    
+    $icon_size_allowed = array('normal', 'x2', 'x3', 'x4', 'x5');
+    $instance['icon_size'] = ( in_array($new_instance['icon_size'], $icon_size_allowed) ) ? $new_instance['icon_size'] : 'normal';
+
     foreach (self::$social_networks as $key => $social_network_name) {
       
       $social_network_url = $key . '_url';
