@@ -74,6 +74,7 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     $widget_ops = array( 
       'classname' => 'cbb_social_networks_widget',
       'description' => __( 'A list of social networks links for CBB Theme.', 'customizer-building-blocks'),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_social_networks_widget', __( 'CBB Social Networks List', 'customizer-building-blocks'), $widget_ops );
   }

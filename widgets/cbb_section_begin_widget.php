@@ -6,6 +6,7 @@ class CBB_SectionBegin_Widget extends WP_Widget {
     $widget_ops = array(
       'classname' => 'cbb_section_begin_widget',
       'description' => __( 'A Section Begin widget for CBB Theme. Should always be used before a Section End widget.', 'customizer-building-blocks' ),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_section_begin_widget', __( 'CBB Section Begin', 'customizer-building-blocks' ), $widget_ops );
   }

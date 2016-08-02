@@ -5,6 +5,7 @@ class CBB_SectionEnd_Widget extends WP_Widget {
     $widget_ops = array( 
       'classname' => 'cbb_section_end_widget',
       'description' => __( 'A Section End widget for CBB Theme. Should always be used after a Section Begin widget.', 'customizer-building-blocks' ),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_section_end_widget', __( 'CBB Section End', 'customizer-building-blocks' ), $widget_ops );
   }

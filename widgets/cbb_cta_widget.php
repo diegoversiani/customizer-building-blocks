@@ -6,6 +6,7 @@ class CBB_CTA_Widget extends WP_Widget {
     $widget_ops = array( 
       'classname' => 'cbb_cta_widget',
       'description' => __( 'A Call To Action widget for CBB Theme. Can also be used as a Call Out text.', 'customizer-building-blocks'),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_cta_widget', __( 'CBB CTA/Call Out', 'customizer-building-blocks'), $widget_ops );
   }

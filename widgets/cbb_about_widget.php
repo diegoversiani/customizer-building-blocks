@@ -6,6 +6,7 @@ class CBB_About_Widget extends WP_Widget {
     $widget_ops = array( 
       'classname' => 'cbb_about_widget',
       'description' => __( 'An About section widget for CBB Theme.', 'customizer-building-blocks' ),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_about_widget', __( 'CBB About', 'customizer-building-blocks' ), $widget_ops );
   }

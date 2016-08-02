@@ -6,6 +6,7 @@ class CBB_Text_Widget extends WP_Widget {
     $widget_ops = array( 
       'classname' => 'cbb_text_widget',
       'description' => __( 'Text widget for CBB Theme.', 'customizer-building-blocks' ),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_text_widget', __( 'CBB Text', 'customizer-building-blocks' ), $widget_ops );
   }

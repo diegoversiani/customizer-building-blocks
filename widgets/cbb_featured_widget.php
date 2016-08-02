@@ -6,6 +6,7 @@ class CBB_Featured_Widget extends WP_Widget {
     $widget_ops = array( 
       'classname' => 'cbb_featured_widget',
       'description' => __( 'A Feature widget for CBB Theme. Should always be used between Features Begin and Features End widgets.', 'customizer-building-blocks'),
+      'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_featured_widget', __( 'CBB Featured', 'customizer-building-blocks'), $widget_ops );
   }
