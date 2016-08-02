@@ -6,4 +6,8 @@
  */
 
 // Add closing tags for previous Section Begin Widget
-echo '</div></div>';
+echo '</div></div></div>';
+
+
+
+echo $args['after_widget'];

@@ -5,10 +5,17 @@
  * in the folder `plugins/customizer-building-blocks/widget-templates` in your active theme
  */
 
+$content_wrapper_class =  'container';
 $css_class = 'cbb-section row ' . $css_class;
+
+
+
+echo $args['before_widget'];
 
 ?> 
 <div class="<?php esc_attr_e( $css_class ); ?>">
+
+  <div class="section-wrapper <?php if ( $content_wrapper ) esc_attr_e( $content_wrapper_class ); ?>"> 
 
     <?php if ( ! empty( $instance['title'] ) ) : ?>
       <div class="section-title">

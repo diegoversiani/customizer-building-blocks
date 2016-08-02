@@ -15,7 +15,6 @@ class CBB_SectionEnd_Widget extends WP_Widget {
     if ( $template == '' ) $template = CBB_DEFAULT_TEMPLATES_FOLDER . '/cbb_section_end_template.php';
     include ( $template );
 
-    echo $args['after_widget'];
   }
 
   public function form( $instance ) {
