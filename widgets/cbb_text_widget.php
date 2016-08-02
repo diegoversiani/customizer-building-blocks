@@ -13,7 +13,7 @@ class CBB_Text_Widget extends WP_Widget {
   public function widget( $args, $instance ) {
 
     if ( ! empty( $instance['title_tag'] ) ) {
-      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="text-title">';
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="widget-title cbb-text-title">';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 

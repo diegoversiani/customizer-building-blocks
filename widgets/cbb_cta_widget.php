@@ -13,7 +13,7 @@ class CBB_CTA_Widget extends WP_Widget {
   public function widget( $args, $instance ) {
 
     if ( ! empty( $instance['title_tag'] ) ) {
-      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . '>';
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . 'class="widget-title cbb-cta-title">';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 

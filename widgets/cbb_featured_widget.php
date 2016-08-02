@@ -16,7 +16,7 @@ class CBB_Featured_Widget extends WP_Widget {
     $button_css_class = ( $instance['button_css_class'] ? $instance['button_css_class'] : 'btn-secondary' );
 
     if ( ! empty( $instance['title_tag'] ) ) {
-      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="featured-title">';
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="widget-title cbb-featured-title">';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
     
