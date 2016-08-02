@@ -27,31 +27,31 @@
 // active theme and uncomment the lines bellow.
 // 
 // /* FONTAWESOME ICONS*/
-// $social_networks_icons['behance'] = 'fa-behance',
-// $social_networks_icons['bitcoin'] = 'fa-bitcoin',
-// $social_networks_icons['delicious'] = 'fa-delicious',
-// $social_networks_icons['deviantart'] = 'fa-deviantart',
-// $social_networks_icons['digg'] = 'fa-digg',
-// $social_networks_icons['dribbble'] = 'fa-dribbble',
-// $social_networks_icons['facebook'] = 'fa-facebook',
-// $social_networks_icons['flickr'] = 'fa-flickr',
-// $social_networks_icons['foursquare'] = 'fa-foursquare',
-// $social_networks_icons['github'] = 'fa-github',
-// $social_networks_icons['google-plus'] = 'fa-google-plus',
-// $social_networks_icons['instagram'] = 'fa-instagram',
-// $social_networks_icons['lastfm'] = 'fa-lastfm',
-// $social_networks_icons['linkedin'] = 'fa-linkedin',
-// $social_networks_icons['medium'] = 'fa-medium',
-// $social_networks_icons['pinterest'] = 'fa-pinterest',
-// $social_networks_icons['skype'] = 'fa-skype',
-// $social_networks_icons['soundcloud'] = 'fa-soundcloud',
-// $social_networks_icons['spotify'] = 'fa-spotify',
-// $social_networks_icons['tumblr'] = 'fa-tumblr',
-// $social_networks_icons['twitter'] = 'fa-twitter',
-// $social_networks_icons['vine'] = 'fa-vine',
-// $social_networks_icons['wechat'] = 'fa-wechat',
-// $social_networks_icons['wordpress'] = 'fa-wordpress',
-// $social_networks_icons['youtube'] = 'fa-youtube',
+// $social_networks_icons['behance'] = 'fa-behance';
+// $social_networks_icons['bitcoin'] = 'fa-bitcoin';
+// $social_networks_icons['delicious'] = 'fa-delicious';
+// $social_networks_icons['deviantart'] = 'fa-deviantart';
+// $social_networks_icons['digg'] = 'fa-digg';
+// $social_networks_icons['dribbble'] = 'fa-dribbble';
+// $social_networks_icons['facebook'] = 'fa-facebook';
+// $social_networks_icons['flickr'] = 'fa-flickr';
+// $social_networks_icons['foursquare'] = 'fa-foursquare';
+// $social_networks_icons['github'] = 'fa-github';
+// $social_networks_icons['google-plus'] = 'fa-google-plus';
+// $social_networks_icons['instagram'] = 'fa-instagram';
+// $social_networks_icons['lastfm'] = 'fa-lastfm';
+// $social_networks_icons['linkedin'] = 'fa-linkedin';
+// $social_networks_icons['medium'] = 'fa-medium';
+// $social_networks_icons['pinterest'] = 'fa-pinterest';
+// $social_networks_icons['skype'] = 'fa-skype';
+// $social_networks_icons['soundcloud'] = 'fa-soundcloud';
+// $social_networks_icons['spotify'] = 'fa-spotify';
+// $social_networks_icons['tumblr'] = 'fa-tumblr';
+// $social_networks_icons['twitter'] = 'fa-twitter';
+// $social_networks_icons['vine'] = 'fa-vine';
+// $social_networks_icons['wechat'] = 'fa-wechat';
+// $social_networks_icons['wordpress'] = 'fa-wordpress';
+// $social_networks_icons['youtube'] = 'fa-youtube';
 
 
 
@@ -71,7 +71,6 @@ $icon_size_class = $social_networks_icons_size[ $instance['icon_size'] ];
   <ul class="cbb-social-networks__list">
 
   <?php
-
 
   foreach ($social_networks as $key => $social_network_name) {
     
