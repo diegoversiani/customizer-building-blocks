@@ -29,6 +29,7 @@ $css_class = 'cbb-social-networks ' . $css_class;
   foreach ($social_networks as $key => $social_network_name) {
     
     $social_network_url = $key . '_url';
+    $social_network_text = $key . '_text';
 
     if ( !empty( $instance[ $social_network_url ] ) ) {
       $social_network_classes = $instance['icon_size'] . ' ' . $social_networks_icons[ $key ];

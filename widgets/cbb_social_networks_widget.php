@@ -134,12 +134,16 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     foreach (self::$social_networks as $key => $social_network_name) {
       
       $social_network_url = $key . '_url';
+      $social_network_text = $key . '_text';
       
       ?>
 
       <p>
-      <label for="<?php echo $this->get_field_id( $social_network_url ); ?>"><?php esc_html_e( $social_network_name . _x( ' URL:', 'Suffix for Social Networks name on widget backend form: Facebook URL:' , 'customizer-building-blocks' ) ); ?></label> 
-      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_url ); ?>" name="<?php echo $this->get_field_name( $social_network_url ); ?>" type="text" value="<?php esc_attr_e( $instance[ $social_network_url ] ); ?>">
+      <label for="<?php echo $this->get_field_id( $social_network_url ); ?>"><?php esc_html_e( $social_network_name . _x( ' URL & Text:', 'Suffix for Social Networks name on widget backend form: i.e. Facebook URL & Text:' , 'customizer-building-blocks' ) ); ?></label> 
+
+      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_url ); ?>" name="<?php echo $this->get_field_name( $social_network_url ); ?>" type="text" value="<?php esc_attr_e( $instance[ $social_network_url ] ); ?>" placeholder="<?php echo _x('url', 'Placeholder for URL fields on widget backend form.', 'customizer-building-blocks'); ?>">
+
+      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_text ); ?>" name="<?php echo $this->get_field_name( $social_network_text ); ?>" type="text" value="<?php esc_attr_e( $instance[ $social_network_text ] ); ?>" placeholder="<?php echo _x('text', 'Placeholder for Text fields on widget backend form.', 'customizer-building-blocks'); ?>">
       </p>
 
       <?php
@@ -161,8 +165,10 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     foreach (self::$social_networks as $key => $social_network_name) {
       
       $social_network_url = $key . '_url';
+      $social_network_text = $key . '_text';
 
       $instance[ $social_network_url ] = ( ! empty( $new_instance[ $social_network_url ] ) ) ? esc_url_raw( $new_instance[ $social_network_url ] ) : '';
+      $instance[ $social_network_text ] = ( ! empty( $new_instance[ $social_network_text ] ) ) ? esc_attr( $new_instance[ $social_network_text ] ) : '';
 
     }
 
