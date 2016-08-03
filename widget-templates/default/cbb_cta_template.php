@@ -13,6 +13,12 @@ $icon_class = $instance['icon_class'];
 ?>
   <div class="<?php esc_attr_e( $css_class ); ?>">
 
+    <?php if ( ! empty( $instance['button_href'] ) && empty( $instance['button_text'] ) ) : ?>
+      <a href="<?php echo esc_url( $instance['button_href'] ); ?>">
+    <?php endif; ?>
+
+
+
     <?php if ( ! empty( $instance['background_image_url'] ) ) : ?>
       <img src="<?php echo esc_url( $instance['background_image_url'] ); ?>" class="<?php esc_attr_e( $image_class ); ?>">
     <?php endif; ?>
@@ -27,10 +33,16 @@ $icon_class = $instance['icon_class'];
     }
     ?>
 
-    <p><?php echo wp_kses_post( $instance['text'] ); ?></p>
+    <p class="cbb-cta__text"><?php echo wp_kses_post( $instance['text'] ); ?></p>
 
     <?php if ( ! empty( $instance['button_text'] ) ) : ?>
       <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="<?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
+    <?php endif; ?>
+
+
+
+    <?php if ( ! empty( $instance['button_href'] ) && empty( $instance['button_text'] ) ) : ?>
+      </a>
     <?php endif; ?>
 
   </div>
