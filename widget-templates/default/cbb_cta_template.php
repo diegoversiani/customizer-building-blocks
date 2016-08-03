@@ -9,7 +9,7 @@ $css_class = 'cbb-cta ' . $css_class;
 $button_css_class = 'button ' . $button_css_class;
 
 ?>
-  <div class="<?php esc_attr_e( $css_class ); ?>">
+  <div class="<?php esc_attr_e( $css_class ); ?>" <?php if ( isset( $instance['background_image_url'] ) ) echo 'style="background-image: url(' . $instance['background_image_url'] . '");'; ?> >
     <?php 
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
