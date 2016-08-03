@@ -32,6 +32,7 @@ if (!defined('CBB_DEFAULT_TEMPLATES_FOLDER')) define('CBB_DEFAULT_TEMPLATES_FOLD
 add_action( 'widgets_init', 'cbb_widgets_plugin_init');
 function cbb_widgets_plugin_init () {
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_about_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_button_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_cta_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_featured_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_section_begin_widget.php' );
@@ -40,6 +41,7 @@ function cbb_widgets_plugin_init () {
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_text_widget.php' );
   
   register_widget( 'CBB_About_Widget' );
+  register_widget( 'CBB_Button_Widget' );
   register_widget( 'CBB_CTA_Widget' );
   register_widget( 'CBB_Featured_Widget' );
   register_widget( 'CBB_SectionBegin_Widget' );
