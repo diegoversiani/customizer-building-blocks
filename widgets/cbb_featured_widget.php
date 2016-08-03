@@ -9,6 +9,21 @@ class CBB_Featured_Widget extends WP_Widget {
       'customize_selective_refresh' => true
     );
     parent::__construct( 'cbb_featured_widget', __( 'CBB Featured', 'customizer-building-blocks'), $widget_ops );
+
+
+
+    add_action( 'sidebar_admin_setup', array( $this, 'admin_setup' ) );
+  }
+
+
+
+
+  function admin_setup(){
+
+    wp_enqueue_media();
+    wp_register_script('cbb-admin-js', CBB_PLUGIN_URL . '/js/cbb-admin.js' , array( 'jquery', 'media-upload', 'media-views' ) );
+    wp_enqueue_script('cbb-admin-js', '');
+    
   }
 
 
@@ -41,14 +56,16 @@ class CBB_Featured_Widget extends WP_Widget {
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $title_tag = ! empty( $instance['title_tag'] ) ? $instance['title_tag'] : '';
-    $image_url = ! empty( $instance['image_url'] ) ? $instance['image_url'] : '';
+    $image_url = ( isset( $instance['image_url'] ) ) ? $instance['image_url'] : '';
     $icon_class = ! empty( $instance['icon_class'] ) ? $instance['icon_class'] : '';
-    $icon_background_class = ! empty( $instance['icon_background_class'] ) ? $instance['icon_background_class'] : '';
     $text = ! empty( $instance['text'] ) ? $instance['text'] : '';
     $button_text = ! empty( $instance['button_text'] ) ? $instance['button_text'] : '';
     $button_href = ! empty( $instance['button_href'] ) ? $instance['button_href'] : '';
     $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     $button_css_class = ! empty( $instance['button_css_class'] ) ? $instance['button_css_class'] : '';
+
+
+
     ?>
     <p>
     <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'customizer-building-blocks' ); ?></label> 
@@ -68,22 +85,23 @@ class CBB_Featured_Widget extends WP_Widget {
       <option value="h6" <?php esc_attr_e( $title_tag == 'h6' ? 'selected' : '' ); ?>><?php _e( 'h6', 'customizer-building-blocks' ); ?></option>
       <option value="span" <?php esc_attr_e( $title_tag == 'span' ? 'selected' : '' ); ?>><?php _e( 'span', 'customizer-building-blocks' ); ?></option>
     </select>
+    </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'image_url' ); ?>"><?php _e( 'Image URL:', 'customizer-building-blocks' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" type="text" value="<?php esc_attr_e( $image_url ); ?>">
+    <label for="<?php echo $this->get_field_id( 'image_url' ); ?>"><?php _e( 'Image URL:', 'customizer-building-blocks' ); ?></label>
+    <input class="widefat image_url" id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $image_url ?>" type="text">
+    <button id="<?php echo $this->get_field_id( 'image_url' ) . '_select_button'; ?>" class="button" onclick="select_image_button_click('Select Image','Select Image','image','<?php echo $this->get_field_id( 'image_url' ) . '_preview'; ?>','<?php echo $this->get_field_id( 'image_url' );  ?>');"><?php _e( 'Select or upload image', 'customizer-building-blocks' ); ?></button>
+    <button id="<?php echo $this->get_field_id( 'image_url' ) . '_clear_button'; ?>" class="button" onclick="clear_image_button_click('<?php echo $this->get_field_id( 'image_url' ) . '_preview'; ?>','<?php echo $this->get_field_id( 'image_url' );  ?>');"><?php _e( 'Clear selection', 'Clear image selection on widget admin form.', 'customizer-building-blocks' ); ?></button>
+    <div id="<?php echo $this->get_field_id( 'image_url' ) . '_preview'; ?>" class="preview_placholder">
+    <?php 
+      if ($image_url!='') echo '<img style="max-width: 100%;" src="' . $image_url . '">';
+    ?>
+    </div>
     </p>
 
     <p>
     <label for="<?php echo $this->get_field_id( 'icon_class' ); ?>"><?php _e( 'Icon Class:', 'customizer-building-blocks' ); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id( 'icon_class' ); ?>" name="<?php echo $this->get_field_name( 'icon_class' ); ?>" type="text" value="<?php esc_attr_e( $icon_class ); ?>">
-    <small><?php _e( 'Only shown if image URL is not provided. Accepts any icon class from <a href="https://fortawesome.github.io">FontAwesome</a>. I.e. <code>fa-facebook</code>. To apply custom colors please use css classes.', 'customizer-building-blocks' ); ?></small>
-    </p>
-
-    <p>
-    <label for="<?php echo $this->get_field_id( 'icon_background_class' ); ?>"><?php _e( 'Background Icon Class:', 'customizer-building-blocks' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'icon_background_class' ); ?>" name="<?php echo $this->get_field_name( 'icon_background_class' ); ?>" type="text" value="<?php esc_attr_e( $icon_background_class ); ?>">
-    <small><?php _e( 'Any icon class from <a href="https://fortawesome.github.io">FontAwesome</a>, but usually <code>fa-circle</code>, <code>fa-circle-o</code>, <code>fa-square</code> or <code>fa-square-o</code>.', 'customizer-building-blocks' ); ?></small>
     </p>
 
     <p>

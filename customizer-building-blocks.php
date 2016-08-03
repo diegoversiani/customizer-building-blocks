@@ -16,9 +16,10 @@
   #CONSTANTS
 \*------------------------------------*/
 
-if (!defined('CBB_WIDGETS_DIR')) define('CBB_WIDGETS_DIR', plugin_dir_path( __FILE__ ));
+if (!defined('CBB_PLUGIN_DIR')) define('CBB_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
+if (!defined('CBB_PLUGIN_URL')) define('CBB_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 if (!defined('CBB_THEME_TEMPLATES_FOLDER')) define('CBB_THEME_TEMPLATES_FOLDER', 'plugins/customizer-building-blocks/widget-templates' );
-if (!defined('CBB_DEFAULT_TEMPLATES_FOLDER')) define('CBB_DEFAULT_TEMPLATES_FOLDER',  CBB_WIDGETS_DIR . 'widget-templates/default' );
+if (!defined('CBB_DEFAULT_TEMPLATES_FOLDER')) define('CBB_DEFAULT_TEMPLATES_FOLDER',  CBB_PLUGIN_DIR . 'widget-templates/default' );
 
 
 
@@ -30,13 +31,13 @@ if (!defined('CBB_DEFAULT_TEMPLATES_FOLDER')) define('CBB_DEFAULT_TEMPLATES_FOLD
 
 add_action( 'widgets_init', 'cbb_widgets_plugin_init');
 function cbb_widgets_plugin_init () {
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_about_widget.php' );
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_cta_widget.php' );
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_featured_widget.php' );
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_section_begin_widget.php' );
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_section_end_widget.php' );
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_social_networks_widget.php' );
-  require_once( CBB_WIDGETS_DIR . 'widgets/cbb_text_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_about_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_cta_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_featured_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_section_begin_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_section_end_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_social_networks_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_text_widget.php' );
   
   register_widget( 'CBB_About_Widget' );
   register_widget( 'CBB_CTA_Widget' );

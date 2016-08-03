@@ -12,10 +12,10 @@ $button_css_class = 'button ' . $button_css_class;
 <div class="cbb-featured <?php esc_attr_e( $css_class ); ?>">
     
   <?php if ( ! empty( $instance['image_url'] )) : ?>
-  <img class="cbb-featured__image"> src="<?php echo esc_url( $instance['image_url'] ); ?>" alt="<?php esc_attr_e( $instance['title'] ); ?>">
+  <img class="cbb-featured__image" src="<?php echo esc_url( $instance['image_url'] ); ?>" alt="<?php esc_attr_e( $instance['title'] ); ?>">
   <?php endif; ?>
 
-  <?php if ( ! empty( $instance['icon_class'] ) ) : ?>
+  <?php if ( empty( $instance['image_url'] ) && ! empty( $instance['icon_class'] ) ) : ?>
   <span class="<?php esc_attr_e( $instance['icon_class'] ); ?> cbb-featured__icon"></span>
   <?php endif; ?>
 
