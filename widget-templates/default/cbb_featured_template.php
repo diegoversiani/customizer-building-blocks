@@ -16,7 +16,7 @@ $button_css_class = 'button ' . $button_css_class;
   <?php endif; ?>
 
   <?php if ( ! empty( $instance['icon_class'] ) ) : ?>
-  <span class="cbb-featured__icon <?php esc_attr_e( $instance['icon_class'] ); ?>"></span>
+  <i class="cbb-featured__icon <?php esc_attr_e( $instance['icon_class'] ); ?>"></i>
   <?php endif; ?>
 
   <?php 

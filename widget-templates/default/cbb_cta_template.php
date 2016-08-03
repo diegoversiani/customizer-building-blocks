@@ -6,10 +6,21 @@
  */
 
 $css_class = 'cbb-cta ' . $css_class;
-$button_css_class = 'button ' . $button_css_class;
+$image_class = 'cbb-cta__image ';
+$button_css_class = 'cbb-cta__button button ' . $button_css_class;
+$icon_class = $instance['icon_class'];
 
 ?>
-  <div class="<?php esc_attr_e( $css_class ); ?>" <?php if ( isset( $instance['background_image_url'] ) ) echo 'style="background-image: url(' . $instance['background_image_url'] . '");'; ?> >
+  <div class="<?php esc_attr_e( $css_class ); ?>">
+
+    <?php if ( ! empty( $instance['background_image_url'] ) ) : ?>
+      <img src="<?php echo esc_url( $instance['background_image_url'] ); ?>" class="<?php esc_attr_e( $image_class ); ?>">
+    <?php endif; ?>
+
+    <?php if ( ! empty( $icon_class ) ) : ?>
+    <i class="cbb-cta__icon <?php esc_attr_e( $icon_class ); ?>"></i>
+    <?php endif; ?>
+
     <?php 
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];

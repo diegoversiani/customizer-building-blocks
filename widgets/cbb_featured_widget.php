@@ -12,18 +12,7 @@ class CBB_Featured_Widget extends WP_Widget {
 
 
 
-    add_action( 'sidebar_admin_setup', array( $this, 'admin_setup' ) );
-  }
-
-
-
-
-  function admin_setup(){
-
-    wp_enqueue_media();
-    wp_register_script('cbb-admin-js', CBB_PLUGIN_URL . '/js/cbb-admin.js' , array( 'jquery', 'media-upload', 'media-views' ) );
-    wp_enqueue_script('cbb-admin-js', '');
-    
+    add_action( 'sidebar_admin_setup', 'cbb_widget_admin_setup' );
   }
 
 
@@ -137,18 +126,24 @@ class CBB_Featured_Widget extends WP_Widget {
 
   public function update( $new_instance, $old_instance ) {
     $instance = array();
-    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 
+
+    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
     $title_tag_allowed = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span');
     $instance['title_tag'] = ( in_array($new_instance['title_tag'], $title_tag_allowed) ) ? $new_instance['title_tag'] : '';
+
+
     
     $instance['image_url'] = ( ! empty( $new_instance['image_url'] ) ) ? esc_url_raw( $new_instance['image_url'] ) : '';
     $instance['icon_class'] = ( ! empty( $new_instance['icon_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['icon_class'] ) : '';
-    $instance['icon_background_class'] = ( ! empty( $new_instance['icon_background_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['icon_background_class'] ) : '';
+
+
 
     $instance['text'] = ( ! empty( $new_instance['text'] ) ) ? sanitize_text_field( $new_instance['text'] ) : '';
     $instance['button_text'] = ( ! empty( $new_instance['button_text'] ) ) ? sanitize_text_field( $new_instance['button_text'] ) : '';
     $instance['button_href'] = ( ! empty( $new_instance['button_href'] ) ) ? esc_url_raw( $new_instance['button_href'] ) : '';
+
+
 
     $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
     $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['button_css_class'] ) : '';

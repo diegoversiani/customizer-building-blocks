@@ -58,11 +58,25 @@ function cbb_widgets_plugin_init () {
   #FUNCTIONS
 \*------------------------------------*/
 
+if (! function_exists( 'cbb_widget_admin_setup' )) {
+  function cbb_widget_admin_setup(){
+
+    wp_enqueue_media();
+    wp_register_script('cbb-admin-js', CBB_PLUGIN_URL . '/js/cbb-admin.js' , array( 'jquery', 'media-upload', 'media-views' ) );
+    wp_enqueue_script('cbb-admin-js', '');
+
+  }
+}
+
+
+
 if (! function_exists( 'is_customizer_building_blocks_widgets_ativated' )) {
   function is_customizer_building_blocks_widgets_ativated () {
     return true;
   }
 }
+
+
 
 if (! function_exists( 'customizer_building_blocks_widgets_sanitize_css_classes' )) {
   function customizer_building_blocks_widgets_sanitize_css_classes ( $classes ) {
@@ -75,3 +89,4 @@ if (! function_exists( 'customizer_building_blocks_widgets_sanitize_css_classes'
     return trim( $sanitized_classes );
   }
 }
+
