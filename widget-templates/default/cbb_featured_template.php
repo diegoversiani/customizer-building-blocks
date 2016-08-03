@@ -5,7 +5,7 @@
  * in the folder `plugins/customizer-building-blocks/widget-templates` in your active theme
  */
 
-$css_class = 'four columns ' . $css_class;
+if ( empty( $css_class ) ) $css_class = 'four columns ' . $css_class;
 $button_css_class = 'button ' . $button_css_class;
 
 ?>

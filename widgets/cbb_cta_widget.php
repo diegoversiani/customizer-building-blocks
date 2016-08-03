@@ -37,7 +37,8 @@ class CBB_CTA_Widget extends WP_Widget {
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
-    $button_css_class = ( ! empty( $instance['button_css_class'] ) ) ? $instance['button_css_class'] : 'btn-secondary';
+    $css_class = ( ! empty( $instance['css_class'] ) ) ? $instance['css_class'] : '';
+    $button_css_class = ( ! empty( $instance['button_css_class'] ) ) ? $instance['button_css_class'] : '';
 
     echo $args['before_widget'];
 
