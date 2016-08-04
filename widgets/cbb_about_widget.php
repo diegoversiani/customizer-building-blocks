@@ -8,7 +8,13 @@ class CBB_About_Widget extends WP_Widget {
       'description' => __( 'An About section widget for CBB Theme.', 'customizer-building-blocks' ),
       'customize_selective_refresh' => true
     );
+
     parent::__construct( 'cbb_about_widget', __( 'CBB About', 'customizer-building-blocks' ), $widget_ops );
+
+
+
+
+    add_action( 'sidebar_admin_setup', 'cbb_widget_admin_setup' );
   }
 
 
@@ -18,7 +24,7 @@ class CBB_About_Widget extends WP_Widget {
   public function widget( $args, $instance ) {
 
     if ( ! empty( $instance['title_tag'] ) ) {
-      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="widget-title cbb-about-title">';
+      $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="widget-title cbb-about__title">';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
@@ -42,6 +48,7 @@ class CBB_About_Widget extends WP_Widget {
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $title_tag = ! empty( $instance['title_tag'] ) ? $instance['title_tag'] : '';
+    $image_url = ( isset( $instance['image_url'] ) ) ? $instance['image_url'] : '';
     $text = ! empty( $instance['text'] ) ? $instance['text'] : '';
     $cta_text = ! empty( $instance['cta_text'] ) ? $instance['cta_text'] : '';
     $button_text = ! empty( $instance['button_text'] ) ? $instance['button_text'] : '';
@@ -68,6 +75,18 @@ class CBB_About_Widget extends WP_Widget {
       <option value="h6" <?php esc_attr_e( $title_tag == 'h6' ? 'selected' : '' ); ?>><?php _e( 'h6', 'customizer-building-blocks' ); ?></option>
       <option value="span" <?php esc_attr_e( $title_tag == 'span' ? 'selected' : '' ); ?>><?php _e( 'span', 'customizer-building-blocks' ); ?></option>
     </select>
+
+    <p>
+    <label for="<?php echo $this->get_field_id( 'image_url' ); ?>"><?php _e( 'Image URL:', 'customizer-building-blocks' ); ?></label>
+    <input class="widefat image_url" id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $image_url ?>" type="text">
+    <button id="<?php echo $this->get_field_id( 'image_url' ) . '_select_button'; ?>" class="button" onclick="select_image_button_click('Select Image','Select Image','image','<?php echo $this->get_field_id( 'image_url' ) . '_preview'; ?>','<?php echo $this->get_field_id( 'image_url' );  ?>');"><?php _e( 'Select or upload image', 'customizer-building-blocks' ); ?></button>
+    <button id="<?php echo $this->get_field_id( 'image_url' ) . '_clear_button'; ?>" class="button" onclick="clear_image_button_click('<?php echo $this->get_field_id( 'image_url' ) . '_preview'; ?>','<?php echo $this->get_field_id( 'image_url' );  ?>');"><?php _e( 'Clear selection', 'Clear image selection on widget admin form.', 'customizer-building-blocks' ); ?></button>
+    <div id="<?php echo $this->get_field_id( 'image_url' ) . '_preview'; ?>" class="preview_placholder">
+    <?php 
+      if ($image_url!='') echo '<img style="max-width: 100%;" src="' . $image_url . '">';
+    ?>
+    </div>
+    </p>
 
     <p>
     <label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text:', 'customizer-building-blocks' ); ?></label> 
@@ -107,13 +126,26 @@ class CBB_About_Widget extends WP_Widget {
 
   public function update( $new_instance, $old_instance ) {
     $instance = array();
+
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
     $title_tag_allowed = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span');
     $instance['title_tag'] = ( in_array($new_instance['title_tag'], $title_tag_allowed) ) ? $new_instance['title_tag'] : '';
+
+
+
+    $instance['image_url'] = ( ! empty( $new_instance['image_url'] ) ) ? esc_url_raw( $new_instance['image_url'] ) : '';
+
+
+
     $instance['text'] = ( ! empty( $new_instance['text'] ) ) ? wp_kses_post( $new_instance['text'] ) : '';
+
+
+
     $instance['cta_text'] = ( ! empty( $new_instance['cta_text'] ) ) ? sanitize_text_field( $new_instance['cta_text'] ) : '';
     $instance['button_text'] = ( ! empty( $new_instance['button_text'] ) ) ? sanitize_text_field( $new_instance['button_text'] ) : '';
     $instance['button_href'] = ( ! empty( $new_instance['button_href'] ) ) ? esc_url_raw( $new_instance['button_href'] ) : '';
+
+
 
     $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
     $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['button_css_class'] ) : '';

@@ -6,10 +6,15 @@
  */
 
 $css_class = 'cbb-about ' . $css_class;
-$button_css_class = 'button ' . $button_css_class;
+$image_class = 'cbb-about__image ';
+$button_css_class = 'cbb-about__cta-button button ' . $button_css_class;
 
 ?>
 <div class="<?php esc_attr_e( $css_class ); ?>">
+
+  <?php if ( ! empty( $instance['image_url'] ) ) : ?>
+      <img src="<?php echo esc_url( $instance['image_url'] ); ?>" class="<?php esc_attr_e( $image_class ); ?>">
+  <?php endif; ?>
 
   <?php 
   if ( ! empty( $instance['title'] ) ) {
@@ -17,12 +22,12 @@ $button_css_class = 'button ' . $button_css_class;
   }
   ?>
 
-  <div class="about-text">
+  <div class="cbb-about__text">
     <?php echo $text_escaped; ?>
   </div>
 
   <?php if ( ! empty( $instance['cta_text'] ) || ! empty( $instance['button_text'] ) ) : ?>
-  <div class="about-cta">
+  <div class="cbb-about__cta">
     <?php if ( ! empty( $instance['cta_text'] ) ) : ?>
     <p><?php esc_html_e( $instance['cta_text'] ); ?></p>
     <?php endif; ?>
