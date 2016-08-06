@@ -89,6 +89,9 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     $social_networks_icons = self::$social_networks_icons;
     $social_networks_icons_size = self::$social_networks_icons_size;
     
+    $css_class = ( ! empty( $instance['css_class'] ) ) ? $instance['css_class'] : '';
+
+    
     if ( ! empty( $instance['title_tag'] ) ) {
       $args['before_title'] = '<' . esc_attr( $instance['title_tag'] ) . ' class="widget-title cbb-social-networks-title">';
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
