@@ -50,8 +50,11 @@
 // $social_networks_icons['twitter'] = 'fa-twitter';
 // $social_networks_icons['vine'] = 'fa-vine';
 // $social_networks_icons['wechat'] = 'fa-wechat';
+// $social_networks_icons['whatsapp'] = 'fa-whatsapp';
 // $social_networks_icons['wordpress'] = 'fa-wordpress';
 // $social_networks_icons['youtube'] = 'fa-youtube';
+// $social_networks_icons['phone'] = 'fa-mobile';
+// $social_networks_icons['email'] = 'fa-envelope';
 
 
 

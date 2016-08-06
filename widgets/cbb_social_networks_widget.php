@@ -26,8 +26,11 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     'twitter' => 'Twitter',
     'vine' => 'Vine',
     'wechat' => 'WeChat',
+    'whatsapp' => 'WhatsApp',
     'wordpress' => 'WordPress',
     'youtube' => 'YouTube',
+    'phone' => 'Phone Number',
+    'email' => 'E-mail',
     );
 
   private static $social_networks_icons = array(
@@ -54,8 +57,11 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     'twitter' => 'twitter',
     'vine' => 'vine',
     'wechat' => 'wechat',
+    'whatsapp' => 'whatsapp',
     'wordpress' => 'wordpress',
     'youtube' => 'youtube',
+    'phone' => 'phone',
+    'email' => 'email',
     );
 
   private static $social_networks_icons_size = array(
