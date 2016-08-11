@@ -24,6 +24,8 @@ class CBB_Text_Widget extends WP_Widget {
 
     $widget_text = ! empty( $instance['text'] ) ? $instance['text'] : '';
     $text_escaped = apply_filters( 'widget_text', $widget_text, $instance, $this );
+
+    $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     
     echo $args['before_widget'];
 
