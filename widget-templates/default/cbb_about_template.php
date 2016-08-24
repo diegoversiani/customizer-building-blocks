@@ -10,10 +10,10 @@ $image_class = 'cbb-about__image ';
 $button_css_class = 'cbb-about__cta-button button ' . $button_css_class;
 
 ?>
-<div class="<?php esc_attr_e( $css_class ); ?>">
+<div class="<?php echo esc_attr( $css_class ); ?>">
 
   <?php if ( ! empty( $instance['image_url'] ) ) : ?>
-      <img src="<?php echo esc_url( $instance['image_url'] ); ?>" class="<?php esc_attr_e( $image_class ); ?>">
+      <img src="<?php echo esc_url( $instance['image_url'] ); ?>" class="<?php echo esc_attr( $image_class ); ?>">
   <?php endif; ?>
 
   <?php 
@@ -29,11 +29,11 @@ $button_css_class = 'cbb-about__cta-button button ' . $button_css_class;
   <?php if ( ! empty( $instance['cta_text'] ) || ! empty( $instance['button_text'] ) ) : ?>
   <div class="cbb-about__cta">
     <?php if ( ! empty( $instance['cta_text'] ) ) : ?>
-    <p><?php esc_html_e( $instance['cta_text'] ); ?></p>
+    <p><?php echo esc_html( $instance['cta_text'] ); ?></p>
     <?php endif; ?>
 
     <?php if ( ! empty( $instance['button_text'] ) ) : ?>
-    <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="<?php esc_attr_e( $button_css_class ); ?>"><?php esc_html_e( $instance['button_text'] ); ?></a>
+    <a href="<?php echo esc_url( $instance['button_href'] ); ?>" class="<?php echo esc_attr( $button_css_class ); ?>"><?php echo esc_html( $instance['button_text'] ); ?></a>
     <?php endif; ?>
   </div>
   <?php endif; ?>

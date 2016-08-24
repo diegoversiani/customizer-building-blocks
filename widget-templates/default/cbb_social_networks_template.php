@@ -65,7 +65,7 @@ $icon_size_class = $social_networks_icons_size[ $instance['icon_size'] ];
 
 ?>
 
-<div class="<?php esc_attr_e( $css_class ); ?>">
+<div class="<?php echo esc_attr( $css_class ); ?>">
   <?php 
   if ( ! empty( $instance['title'] ) ) {
     echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];

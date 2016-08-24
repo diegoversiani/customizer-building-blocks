@@ -126,37 +126,37 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
     
     <p>
     <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'customizer-building-blocks' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php esc_attr_e( $title ); ?>">
+    <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
     </p>
 
     <p>
     <label><?php _e( 'Title Tags:', 'customizer-building-blocks' ); ?></label>
     <br>
     <select class="widefat" id="<?php echo $this->get_field_id( 'title_tag' ); ?>" name="<?php echo $this->get_field_name( 'title_tag' ); ?>">
-      <option value="" <?php esc_attr_e( $title_tag == '' ? 'selected' : '' ); ?>><?php _e( '-- None --', 'customizer-building-blocks' ); ?></option>
-      <option value="h1" <?php esc_attr_e( $title_tag == 'h1' ? 'selected' : '' ); ?>><?php _e( 'h1', 'customizer-building-blocks' ); ?></option>
-      <option value="h2" <?php esc_attr_e( $title_tag == 'h2' ? 'selected' : '' ); ?>><?php _e( 'h2', 'customizer-building-blocks' ); ?></option>
-      <option value="h3" <?php esc_attr_e( $title_tag == 'h3' ? 'selected' : '' ); ?>><?php _e( 'h3', 'customizer-building-blocks' ); ?></option>
-      <option value="h4" <?php esc_attr_e( $title_tag == 'h4' ? 'selected' : '' ); ?>><?php _e( 'h4', 'customizer-building-blocks' ); ?></option>
-      <option value="h5" <?php esc_attr_e( $title_tag == 'h5' ? 'selected' : '' ); ?>><?php _e( 'h5', 'customizer-building-blocks' ); ?></option>
-      <option value="h6" <?php esc_attr_e( $title_tag == 'h6' ? 'selected' : '' ); ?>><?php _e( 'h6', 'customizer-building-blocks' ); ?></option>
-      <option value="span" <?php esc_attr_e( $title_tag == 'span' ? 'selected' : '' ); ?>><?php _e( 'span', 'customizer-building-blocks' ); ?></option>
+      <option value="" <?php echo esc_attr( $title_tag == '' ? 'selected' : '' ); ?>><?php _e( '-- None --', 'customizer-building-blocks' ); ?></option>
+      <option value="h1" <?php echo esc_attr( $title_tag == 'h1' ? 'selected' : '' ); ?>><?php _e( 'h1', 'customizer-building-blocks' ); ?></option>
+      <option value="h2" <?php echo esc_attr( $title_tag == 'h2' ? 'selected' : '' ); ?>><?php _e( 'h2', 'customizer-building-blocks' ); ?></option>
+      <option value="h3" <?php echo esc_attr( $title_tag == 'h3' ? 'selected' : '' ); ?>><?php _e( 'h3', 'customizer-building-blocks' ); ?></option>
+      <option value="h4" <?php echo esc_attr( $title_tag == 'h4' ? 'selected' : '' ); ?>><?php _e( 'h4', 'customizer-building-blocks' ); ?></option>
+      <option value="h5" <?php echo esc_attr( $title_tag == 'h5' ? 'selected' : '' ); ?>><?php _e( 'h5', 'customizer-building-blocks' ); ?></option>
+      <option value="h6" <?php echo esc_attr( $title_tag == 'h6' ? 'selected' : '' ); ?>><?php _e( 'h6', 'customizer-building-blocks' ); ?></option>
+      <option value="span" <?php echo esc_attr( $title_tag == 'span' ? 'selected' : '' ); ?>><?php _e( 'span', 'customizer-building-blocks' ); ?></option>
     </select>
 
     <p>
     <label for="<?php echo $this->get_field_id( 'css_class' ); ?>"><?php _e( 'Custom CSS Classes:', 'customizer-building-blocks' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'css_class' ); ?>" name="<?php echo $this->get_field_name( 'css_class' ); ?>" type="text" value="<?php esc_attr_e( $css_class ); ?>">
+    <input class="widefat" id="<?php echo $this->get_field_id( 'css_class' ); ?>" name="<?php echo $this->get_field_name( 'css_class' ); ?>" type="text" value="<?php echo esc_attr( $css_class ); ?>">
     </p>
 
     <p>
     <label><?php _e( 'Icon Size:', 'customizer-building-blocks' ); ?></label>
     <br>
     <select class="widefat" id="<?php echo $this->get_field_id( 'icon_size' ); ?>" name="<?php echo $this->get_field_name( 'icon_size' ); ?>">
-      <option value="normal" <?php esc_attr_e( $icon_size == 'normal' ? 'selected' : '' ); ?>><?php _e( 'Normal', 'customizer-building-blocks' ); ?></option>
-      <option value="x2" <?php esc_attr_e( $icon_size == 'x2' ? 'selected' : '' ); ?>><?php _e( '2x', 'customizer-building-blocks' ); ?></option>
-      <option value="x3" <?php esc_attr_e( $icon_size == 'x3' ? 'selected' : '' ); ?>><?php _e( '3x', 'customizer-building-blocks' ); ?></option>
-      <option value="x4" <?php esc_attr_e( $icon_size == 'x4' ? 'selected' : '' ); ?>><?php _e( '4x', 'customizer-building-blocks' ); ?></option>
-      <option value="x5" <?php esc_attr_e( $icon_size == 'x5' ? 'selected' : '' ); ?>><?php _e( '5x', 'customizer-building-blocks' ); ?></option>
+      <option value="normal" <?php echo esc_attr( $icon_size == 'normal' ? 'selected' : '' ); ?>><?php _e( 'Normal', 'customizer-building-blocks' ); ?></option>
+      <option value="x2" <?php echo esc_attr( $icon_size == 'x2' ? 'selected' : '' ); ?>><?php _e( '2x', 'customizer-building-blocks' ); ?></option>
+      <option value="x3" <?php echo esc_attr( $icon_size == 'x3' ? 'selected' : '' ); ?>><?php _e( '3x', 'customizer-building-blocks' ); ?></option>
+      <option value="x4" <?php echo esc_attr( $icon_size == 'x4' ? 'selected' : '' ); ?>><?php _e( '4x', 'customizer-building-blocks' ); ?></option>
+      <option value="x5" <?php echo esc_attr( $icon_size == 'x5' ? 'selected' : '' ); ?>><?php _e( '5x', 'customizer-building-blocks' ); ?></option>
     </select>
 
     <?php
@@ -171,9 +171,9 @@ class CBB_SocialNetworks_Widget extends WP_Widget {
       <p>
       <label for="<?php echo $this->get_field_id( $social_network_url ); ?>"><?php esc_html_e( $social_network_name . _x( ' URL & Text:', 'Suffix for Social Networks name on widget backend form: i.e. Facebook URL & Text:' , 'customizer-building-blocks' ) ); ?></label> 
 
-      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_url ); ?>" name="<?php echo $this->get_field_name( $social_network_url ); ?>" type="text" value="<?php esc_attr_e( $instance[ $social_network_url ] ); ?>" placeholder="<?php echo _x('url', 'Placeholder for URL fields on widget backend form.', 'customizer-building-blocks'); ?>">
+      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_url ); ?>" name="<?php echo $this->get_field_name( $social_network_url ); ?>" type="text" value="<?php echo esc_attr( $instance[ $social_network_url ] ); ?>" placeholder="<?php echo _x('url', 'Placeholder for URL fields on widget backend form.', 'customizer-building-blocks'); ?>">
 
-      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_text ); ?>" name="<?php echo $this->get_field_name( $social_network_text ); ?>" type="text" value="<?php esc_attr_e( $instance[ $social_network_text ] ); ?>" placeholder="<?php echo _x('text', 'Placeholder for Text fields on widget backend form.', 'customizer-building-blocks'); ?>">
+      <input class="widefat" id="<?php echo $this->get_field_id( $social_network_text ); ?>" name="<?php echo $this->get_field_name( $social_network_text ); ?>" type="text" value="<?php echo esc_attr( $instance[ $social_network_text ] ); ?>" placeholder="<?php echo _x('text', 'Placeholder for Text fields on widget backend form.', 'customizer-building-blocks'); ?>">
       </p>
 
       <?php
