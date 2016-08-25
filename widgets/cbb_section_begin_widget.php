@@ -27,8 +27,8 @@ class CBB_SectionBegin_Widget extends WP_Widget {
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
-    $css_class = ( $instance['css_class'] ? $instance['css_class'] : '' );
     $content_wrapper = ( $instance['content_wrapper'] ? true : false );
+    $css_class = ( $instance['css_class'] ? $instance['css_class'] : '' );
 
     $template = locate_template( CBB_THEME_TEMPLATES_FOLDER . '/cbb_section_begin_template.php' );
     if ( $template == '' ) $template = CBB_DEFAULT_TEMPLATES_FOLDER . '/cbb_section_begin_template.php';

@@ -5,13 +5,16 @@
  * in the folder `plugins/customizer-building-blocks/widget-templates` in your active theme
  */
 
+$content_wrapper_class =  'container';
 $css_class = 'cbb-cta ' . $css_class;
 $image_class = 'cbb-cta__image ';
 $button_css_class = 'cbb-cta__button button ' . $button_css_class;
 $icon_class = $instance['icon_class'];
 
 ?>
-  <div class="<?php esc_attr_e( $css_class ); ?>">
+<section class="<?php esc_attr_e( $css_class ); ?>">
+
+  <div class="section-wrapper <?php if ( $content_wrapper ) esc_attr_e( $content_wrapper_class ); ?>"> 
 
     <?php if ( ! empty( $instance['button_href'] ) && empty( $instance['button_text'] ) ) : ?>
       <a href="<?php echo esc_url( $instance['button_href'] ); ?>">
@@ -19,8 +22,8 @@ $icon_class = $instance['icon_class'];
 
 
 
-    <?php if ( ! empty( $instance['background_image_url'] ) ) : ?>
-      <img src="<?php echo esc_url( $instance['background_image_url'] ); ?>" class="<?php esc_attr_e( $image_class ); ?>">
+    <?php if ( ! empty( $instance['image_url'] ) ) : ?>
+      <img src="<?php echo esc_url( $instance['image_url'] ); ?>" class="<?php esc_attr_e( $image_class ); ?>">
     <?php endif; ?>
 
     <?php if ( ! empty( $icon_class ) ) : ?>
@@ -46,3 +49,4 @@ $icon_class = $instance['icon_class'];
     <?php endif; ?>
 
   </div>
+</section>

@@ -26,6 +26,7 @@ class CBB_CTA_Widget extends WP_Widget {
       $args['after_title'] = '</' . esc_attr( $instance['title_tag'] ) . '>';
     }
 
+    $content_wrapper = ( $instance['content_wrapper'] ? true : false );
     $css_class = ( ! empty( $instance['css_class'] ) ) ? $instance['css_class'] : '';
     $button_css_class = ( ! empty( $instance['button_css_class'] ) ) ? $instance['button_css_class'] : '';
 
@@ -50,6 +51,7 @@ class CBB_CTA_Widget extends WP_Widget {
     $text = ! empty( $instance['text'] ) ? $instance['text'] : '';
     $button_text = ! empty( $instance['button_text'] ) ? $instance['button_text'] : '';
     $button_href = ! empty( $instance['button_href'] ) ? $instance['button_href'] : '';
+    $content_wrapper = $instance[ 'content_wrapper' ] ? 'true' : 'false';
     $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     $button_css_class = ! empty( $instance['button_css_class'] ) ? $instance['button_css_class'] : '';
     ?>
@@ -105,6 +107,11 @@ class CBB_CTA_Widget extends WP_Widget {
     </p>
 
     <p>
+    <input class="checkbox" type="checkbox" <?php checked( $instance[ 'content_wrapper' ], 'on' ); ?> id="<?php echo $this->get_field_id( 'content_wrapper' ); ?>" name="<?php echo $this->get_field_name( 'content_wrapper' ); ?>" />
+    <label for="<?php echo $this->get_field_id( 'content_wrapper' ); ?>"><?php _e( 'Add section content wraper?', 'customizer-building-blocks' ); ?></label>
+    </p>
+
+    <p>
     <label for="<?php echo $this->get_field_id( 'css_class' ); ?>"><?php _e( 'Custom CSS Classes:', 'customizer-building-blocks' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'css_class' ); ?>" name="<?php echo $this->get_field_name( 'css_class' ); ?>" type="text" value="<?php esc_attr_e( $css_class ); ?>">
     </p>
@@ -145,7 +152,8 @@ class CBB_CTA_Widget extends WP_Widget {
     $instance['button_href'] = ( ! empty( $new_instance['button_href'] ) ) ? esc_url_raw( $new_instance['button_href'] ) : '';
 
 
-    
+
+    $instance['content_wrapper'] = $new_instance['content_wrapper'];
     $instance['css_class'] = ( ! empty( $new_instance['css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['css_class'] ) : '';
     $instance['button_css_class'] = ( ! empty( $new_instance['button_css_class'] ) ) ? customizer_building_blocks_widgets_sanitize_css_classes( $new_instance['button_css_class'] ) : '';
 
