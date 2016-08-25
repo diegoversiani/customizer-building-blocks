@@ -25,6 +25,7 @@ class CBB_SectionFeatured_Widget extends WP_Widget {
     $feature_title_tag = ! empty( $instance['feature_title_tag'] ) ? $instance['feature_title_tag'] : '';
     $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     $button_css_class = ! empty( $instance['button_css_class'] ) ? $instance['button_css_class'] : '';
+    $content_wrapper = ( $instance['content_wrapper'] ? true : false );
     
     $number_of_items = ! empty( $instance['number_of_items'] ) ? intval( $instance['number_of_items'] ) : 0;
 
@@ -48,6 +49,7 @@ class CBB_SectionFeatured_Widget extends WP_Widget {
     $feature_title_tag = ! empty( $instance['feature_title_tag'] ) ? $instance['feature_title_tag'] : '';
     $css_class = ! empty( $instance['css_class'] ) ? $instance['css_class'] : '';
     $button_css_class = ! empty( $instance['button_css_class'] ) ? $instance['button_css_class'] : '';
+    $content_wrapper = $instance[ 'content_wrapper' ] ? 'true' : 'false';
     
     $number_of_items = ! empty( $instance['number_of_items'] ) ? intval( $instance['number_of_items'] ) : 1;
 
@@ -55,6 +57,11 @@ class CBB_SectionFeatured_Widget extends WP_Widget {
     <p>
     <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Section Title:', 'customizer-building-blocks' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+    </p>
+
+    <p>
+    <input class="checkbox" type="checkbox" <?php checked( $instance[ 'content_wrapper' ], 'on' ); ?> id="<?php echo $this->get_field_id( 'content_wrapper' ); ?>" name="<?php echo $this->get_field_name( 'content_wrapper' ); ?>" />
+    <label for="<?php echo $this->get_field_id( 'content_wrapper' ); ?>"><?php _e( 'Add section content wraper?', 'customizer-building-blocks' ); ?></label>
     </p>
 
     <p>
@@ -175,6 +182,7 @@ class CBB_SectionFeatured_Widget extends WP_Widget {
     // SECTION OPTIONS
 
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+    $instance['content_wrapper'] = $new_instance['content_wrapper'];
     
     $title_tag_allowed = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span');
     $instance['feature_title_tag'] = ( in_array($new_instance['feature_title_tag'], $title_tag_allowed) ) ? $new_instance['feature_title_tag'] : '';
