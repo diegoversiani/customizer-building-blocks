@@ -13,9 +13,9 @@ $css_class = 'cbb-section row ' . $css_class;
 echo $args['before_widget'];
 
 ?> 
-<div class="<?php esc_attr_e( $css_class ); ?>" <?php if ( isset( $instance['background_image_url'] ) ) { echo 'style="background-image: url(' . $instance['background_image_url'] . ');"'; } ?> >
+<div class="<?php echo esc_attr( $css_class ); ?>" <?php if ( isset( $instance['background_image_url'] ) ) { echo 'style="background-image: url(' . $instance['background_image_url'] . ');"'; } ?> >
 
-  <div class="section-wrapper <?php if ( $content_wrapper ) esc_attr_e( $content_wrapper_class ); ?>"> 
+  <div class="section-wrapper <?php if ( $content_wrapper ) echo esc_attr( $content_wrapper_class ); ?>"> 
 
     <?php if ( ! empty( $instance['title'] ) ) : ?>
       <div class="section-title">

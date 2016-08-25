@@ -8,7 +8,7 @@
 $css_class = 'cbb-text ' . $css_class;
 
 ?>
-<div class="<?php esc_attr_e( $css_class ); ?>">
+<div class="<?php echo esc_attr( $css_class ); ?>">
   <?php
 
   if ( ! empty( $instance['title'] ) ) {

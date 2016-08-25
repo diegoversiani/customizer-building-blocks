@@ -37,6 +37,7 @@ function cbb_widgets_plugin_init () {
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_featured_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_section_begin_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_section_end_widget.php' );
+  require_once( CBB_PLUGIN_DIR . 'widgets/cbb_section_featured_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_social_networks_widget.php' );
   require_once( CBB_PLUGIN_DIR . 'widgets/cbb_text_widget.php' );
   
@@ -46,6 +47,7 @@ function cbb_widgets_plugin_init () {
   register_widget( 'CBB_Featured_Widget' );
   register_widget( 'CBB_SectionBegin_Widget' );
   register_widget( 'CBB_SectionEnd_Widget' );
+  register_widget( 'CBB_SectionFeatured_Widget' );
   register_widget( 'CBB_SocialNetworks_Widget' );
   register_widget( 'CBB_Text_Widget' );
 
